@@ -16,6 +16,7 @@
 		8466702E2557D0E9009DAD79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8466702D2557D0E9009DAD79 /* Assets.xcassets */; };
 		846670392557D0E9009DAD79 /* RunnerGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846670382557D0E9009DAD79 /* RunnerGameTests.swift */; };
 		846670442557D0E9009DAD79 /* RunnerGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846670432557D0E9009DAD79 /* RunnerGameUITests.swift */; };
+		84CFB5BF2558D9DC00D3BBDB /* launch.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 84CFB5BE2558D9DC00D3BBDB /* launch.JPG */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		8466703F2557D0E9009DAD79 /* RunnerGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunnerGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		846670432557D0E9009DAD79 /* RunnerGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerGameUITests.swift; sourceTree = "<group>"; };
 		846670452557D0E9009DAD79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84CFB5BE2558D9DC00D3BBDB /* launch.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launch.JPG; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				8466702A2557D0E7009DAD79 /* Main.storyboard */,
 				8466702D2557D0E9009DAD79 /* Assets.xcassets */,
 				8466702F2557D0E9009DAD79 /* Info.plist */,
+				84CFB5BE2558D9DC00D3BBDB /* launch.JPG */,
 			);
 			path = RunnerGame;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8466702C2557D0E7009DAD79 /* Main.storyboard in Resources */,
+				84CFB5BF2558D9DC00D3BBDB /* launch.JPG in Resources */,
 				846670232557D0E7009DAD79 /* GameScene.sks in Resources */,
 				8466702E2557D0E9009DAD79 /* Assets.xcassets in Resources */,
 				846670252557D0E7009DAD79 /* Actions.sks in Resources */,
