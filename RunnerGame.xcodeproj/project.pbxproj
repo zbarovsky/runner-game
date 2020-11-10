@@ -82,6 +82,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		434F3361255B12E500AC0606 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				434F3362255B12E500AC0606 /* Components */,
+				434F3363255B12E500AC0606 /* Entities */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		434F3362255B12E500AC0606 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		434F3363255B12E500AC0606 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		434F3364255B134700AC0606 /* GlobalComponents */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = GlobalComponents;
+			sourceTree = "<group>";
+		};
 		846670142557D0E7009DAD79 = {
 			isa = PBXGroup;
 			children = (
@@ -107,7 +137,9 @@
 			children = (
 				433D0BB82559E8CB00FD05FD /* Enemies */,
 				846670202557D0E7009DAD79 /* AppDelegate.swift */,
+				434F3361255B12E500AC0606 /* Player */,
 				846670222557D0E7009DAD79 /* GameScene.sks */,
+				434F3364255B134700AC0606 /* GlobalComponents */,
 				846670242557D0E7009DAD79 /* Actions.sks */,
 				846670262557D0E7009DAD79 /* GameScene.swift */,
 				846670282557D0E7009DAD79 /* GameViewController.swift */,
