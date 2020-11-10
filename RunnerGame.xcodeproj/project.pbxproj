@@ -10,6 +10,7 @@
 		433D0BB92559E8CB00FD05FD /* Enemies in Resources */ = {isa = PBXBuildFile; fileRef = 433D0BB82559E8CB00FD05FD /* Enemies */; };
 		434F3366255B163800AC0606 /* GlobalComponents in Resources */ = {isa = PBXBuildFile; fileRef = 434F3365255B163800AC0606 /* GlobalComponents */; };
 		434F336B255B170F00AC0606 /* Player in Resources */ = {isa = PBXBuildFile; fileRef = 434F336A255B170F00AC0606 /* Player */; };
+		434F3379255B279600AC0606 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 434F3378255B279600AC0606 /* README.md */; };
 		846670212557D0E7009DAD79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846670202557D0E7009DAD79 /* AppDelegate.swift */; };
 		846670232557D0E7009DAD79 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 846670222557D0E7009DAD79 /* GameScene.sks */; };
 		846670252557D0E7009DAD79 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 846670242557D0E7009DAD79 /* Actions.sks */; };
@@ -43,6 +44,7 @@
 		433D0BB82559E8CB00FD05FD /* Enemies */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Enemies; sourceTree = "<group>"; };
 		434F3365255B163800AC0606 /* GlobalComponents */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GlobalComponents; sourceTree = "<group>"; };
 		434F336A255B170F00AC0606 /* Player */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Player; sourceTree = "<group>"; };
+		434F3378255B279600AC0606 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8466701D2557D0E7009DAD79 /* RunnerGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunnerGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		846670202557D0E7009DAD79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		846670222557D0E7009DAD79 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				8466702A2557D0E7009DAD79 /* Main.storyboard */,
 				8466702D2557D0E9009DAD79 /* Assets.xcassets */,
 				8466702F2557D0E9009DAD79 /* Info.plist */,
+				434F3378255B279600AC0606 /* README.md */,
 			);
 			path = RunnerGame;
 			sourceTree = "<group>";
@@ -249,10 +252,10 @@
 				84D42EDD255A2D0100CCBB2E /* launch.png in Resources */,
 				8466702C2557D0E7009DAD79 /* Main.storyboard in Resources */,
 				434F3366255B163800AC0606 /* GlobalComponents in Resources */,
-				84CFB5BF2558D9DC00D3BBDB /* launch.JPG in Resources */,
 				434F336B255B170F00AC0606 /* Player in Resources */,
 				846670232557D0E7009DAD79 /* GameScene.sks in Resources */,
 				433D0BB92559E8CB00FD05FD /* Enemies in Resources */,
+				434F3379255B279600AC0606 /* README.md in Resources */,
 				8466702E2557D0E9009DAD79 /* Assets.xcassets in Resources */,
 				846670252557D0E7009DAD79 /* Actions.sks in Resources */,
 			);
