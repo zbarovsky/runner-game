@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		433D0BB92559E8CB00FD05FD /* Enemies in Resources */ = {isa = PBXBuildFile; fileRef = 433D0BB82559E8CB00FD05FD /* Enemies */; };
+		434F3366255B163800AC0606 /* GlobalComponents in Resources */ = {isa = PBXBuildFile; fileRef = 434F3365255B163800AC0606 /* GlobalComponents */; };
+		434F336B255B170F00AC0606 /* Player in Resources */ = {isa = PBXBuildFile; fileRef = 434F336A255B170F00AC0606 /* Player */; };
 		846670212557D0E7009DAD79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846670202557D0E7009DAD79 /* AppDelegate.swift */; };
 		846670232557D0E7009DAD79 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 846670222557D0E7009DAD79 /* GameScene.sks */; };
 		846670252557D0E7009DAD79 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 846670242557D0E7009DAD79 /* Actions.sks */; };
@@ -39,6 +41,8 @@
 
 /* Begin PBXFileReference section */
 		433D0BB82559E8CB00FD05FD /* Enemies */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Enemies; sourceTree = "<group>"; };
+		434F3365255B163800AC0606 /* GlobalComponents */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GlobalComponents; sourceTree = "<group>"; };
+		434F336A255B170F00AC0606 /* Player */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Player; sourceTree = "<group>"; };
 		8466701D2557D0E7009DAD79 /* RunnerGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunnerGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		846670202557D0E7009DAD79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		846670222557D0E7009DAD79 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -82,36 +86,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		434F3361255B12E500AC0606 /* Player */ = {
-			isa = PBXGroup;
-			children = (
-				434F3362255B12E500AC0606 /* Components */,
-				434F3363255B12E500AC0606 /* Entities */,
-			);
-			path = Player;
-			sourceTree = "<group>";
-		};
-		434F3362255B12E500AC0606 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
-		434F3363255B12E500AC0606 /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Entities;
-			sourceTree = "<group>";
-		};
-		434F3364255B134700AC0606 /* GlobalComponents */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = GlobalComponents;
-			sourceTree = "<group>";
-		};
 		846670142557D0E7009DAD79 = {
 			isa = PBXGroup;
 			children = (
@@ -135,11 +109,11 @@
 		8466701F2557D0E7009DAD79 /* RunnerGame */ = {
 			isa = PBXGroup;
 			children = (
+				434F336A255B170F00AC0606 /* Player */,
+				434F3365255B163800AC0606 /* GlobalComponents */,
 				433D0BB82559E8CB00FD05FD /* Enemies */,
 				846670202557D0E7009DAD79 /* AppDelegate.swift */,
-				434F3361255B12E500AC0606 /* Player */,
 				846670222557D0E7009DAD79 /* GameScene.sks */,
-				434F3364255B134700AC0606 /* GlobalComponents */,
 				846670242557D0E7009DAD79 /* Actions.sks */,
 				84D42EDC255A2D0000CCBB2E /* launch.png */,
 				846670262557D0E7009DAD79 /* GameScene.swift */,
@@ -274,6 +248,9 @@
 			files = (
 				84D42EDD255A2D0100CCBB2E /* launch.png in Resources */,
 				8466702C2557D0E7009DAD79 /* Main.storyboard in Resources */,
+				434F3366255B163800AC0606 /* GlobalComponents in Resources */,
+				84CFB5BF2558D9DC00D3BBDB /* launch.JPG in Resources */,
+				434F336B255B170F00AC0606 /* Player in Resources */,
 				846670232557D0E7009DAD79 /* GameScene.sks in Resources */,
 				433D0BB92559E8CB00FD05FD /* Enemies in Resources */,
 				8466702E2557D0E9009DAD79 /* Assets.xcassets in Resources */,
