@@ -29,8 +29,6 @@ class PlayerComponent: GKComponent {
           lastScoreInterval = CACurrentMediaTime()
           score += scoreIncreasePerInterval
         }
-        print(score)
-        
     }
     
 
