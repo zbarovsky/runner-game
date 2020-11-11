@@ -73,7 +73,10 @@ class EntityManager {
              return
          }
          
-         playerEntity.update(deltaTime: 0)
+        if let jumpComponent = playerEntity.component(ofType: JumpComponent.self)
+        {
+            jumpComponent.jump(withVelocity: 175, forEntity:playerEntity)
+        }
     }
 
 }
