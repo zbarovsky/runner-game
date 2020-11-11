@@ -32,6 +32,7 @@ class GameScene: SKScene {
     
     
     func touchDown(atPoint pos : CGPoint) {
+        entityManager.makePlayerJump()
         
     }
     

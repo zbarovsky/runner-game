@@ -58,5 +58,22 @@ class EntityManager {
       }
       toRemove.removeAll()
     }
+    
+    func player() -> GKEntity? {
+      for entity in entities {
+          if let _ = entity.component(ofType: PlayerComponent.self) {
+            return entity
+          }
+      }
+      return nil
+    }
+    
+    func makePlayerJump() {
+        guard let playerEntity = player() else {
+             return
+         }
+         
+         playerEntity.update(deltaTime: 0)
+    }
 
 }

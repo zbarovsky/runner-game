@@ -15,6 +15,7 @@ class Floor: GKEntity {
         
         let spriteComponent = SpriteComponent(texture: SKTexture(imageNamed: imageName))
         spriteComponent.node.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: imageName), size: CGSize.init(width: spriteComponent.node.size.width, height: spriteComponent.node.size.height))
+        spriteComponent.node.physicsBody?.restitution = 0.0
         spriteComponent.node.physicsBody?.isDynamic = false
         
         addComponent(spriteComponent)

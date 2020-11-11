@@ -25,6 +25,7 @@
 		84E593E1255C0C2200DCDA1B /* Objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E593DF255C0C2200DCDA1B /* Objects.swift */; };
 		84E593E2255C0C2200DCDA1B /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E593E0255C0C2200DCDA1B /* Enemy.swift */; };
 		84EC51EF255C118C00448CDA /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EC51EE255C118C00448CDA /* player.png */; };
+		84EC51F4255C14B100448CDA /* JumpComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EC51F3255C14B100448CDA /* JumpComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		84E593DF255C0C2200DCDA1B /* Objects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Objects.swift; sourceTree = "<group>"; };
 		84E593E0255C0C2200DCDA1B /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		84EC51EE255C118C00448CDA /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
+		84EC51F3255C14B100448CDA /* JumpComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumpComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				849BFE4F255C0E4500BA2DD3 /* PlayerComponent.swift */,
+				84EC51F3255C14B100448CDA /* JumpComponent.swift */,
 				849BFE3E255C0CA000BA2DD3 /* SpriteComponent.swift */,
 			);
 			path = Components;
@@ -315,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				846670272557D0E7009DAD79 /* GameScene.swift in Sources */,
+				84EC51F4255C14B100448CDA /* JumpComponent.swift in Sources */,
 				849BFE5B255C0EFF00BA2DD3 /* Constants.swift in Sources */,
 				84E593C0255C059B00DCDA1B /* Floor.swift in Sources */,
 				849BFE3F255C0CA000BA2DD3 /* SpriteComponent.swift in Sources */,
