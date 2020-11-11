@@ -1,12 +1,12 @@
 import SpriteKit
 import GameplayKit
 
-class Enemy: GkEntity {
+class Enemy: GKEntity {
     init(image: String) {
         super.init()
         
         // added sprite spawn to moving enemy entitiy
-        let spriteSpawn = SpriteSpawn(texture: SKTexture(imageName: image))
+        let spriteSpawn = SpriteComponent(texture: SKTexture(imageNamed: image))
         addComponent(spriteSpawn)
     }
     required init?(coder aDecoder: NSCoder) {
