@@ -6,8 +6,15 @@ class Enemy: GKEntity {
         super.init()
         
         // added sprite spawn to moving enemy entitiy
-        let spriteSpawn = SpriteComponent(texture: SKTexture(imageNamed: image))
-        addComponent(spriteSpawn)
+        let spriteComponent = SpriteComponent(texture: SKTexture(imageNamed: image))
+        spriteComponent.node.physicsBody = SKPhysicsBody(texture:SKTexture(imageNamed: image), size: CGSize.init(width: spriteComponent.node.size.width, height: spriteComponent.node.size.height))
+        spriteComponent.node.physicsBody?.allowsRotation = false
+        spriteComponent.node.physicsBody?.restitution = 0.0
+        spriteComponent.node.physicsBody?.friction = 0.0
+        
+        addComponent(spriteComponent)
+        // TODO: make enemey component to init
+        addComponent(EnemyMovementComponent())
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
