@@ -12,6 +12,9 @@ class GameScene: SKScene {
     
     var entityManager: EntityManager!
     
+    let coin1Label = SKLabelNode(fontNamed: "Courier-Bold")
+
+    
     override func sceneDidLoad() {
         
         entityManager = EntityManager(scene: self)
@@ -24,9 +27,18 @@ class GameScene: SKScene {
         
         let player = Player(imageName: "player")
         if let playerComponent = player.component(ofType: SpriteComponent.self) {
-            playerComponent.node.position = CGPoint(x:size.width/4, y: size.height/2)
+            playerComponent.node.position = CGPoint(x:size.width/6, y: size.height/2)
         }
         entityManager.add(player)
+        
+        coin1Label.fontSize = 50
+        coin1Label.fontColor = SKColor.white
+        coin1Label.position = CGPoint(x: 50, y: size.height - 50)
+        coin1Label.zPosition = 1
+        coin1Label.horizontalAlignmentMode = .left
+        coin1Label.verticalAlignmentMode = .center
+        coin1Label.text = "10"
+        self.addChild(coin1Label)
 
     }
     
@@ -63,6 +75,11 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         entityManager.update(currentTime)
+        
+        if let player = entityManager.player(),
+          let playerScore = player.component(ofType: PlayerComponent.self) {
+          coin1Label.text = "\(playerScore.score)"
+        }
         
     }
 }
