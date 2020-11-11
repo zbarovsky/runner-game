@@ -6,7 +6,7 @@ class Object: GKEntity {
         super.init()
         
         // add spawn capability
-        let spriteSpawn = SpriteSpawn(texture: SKTexture(imageName: image))
+        let spriteSpawn = SpriteComponent(texture: SKTexture(imageNamed: image))
         addComponent(spriteSpawn)
     }
     required init?(coder aDecoder: NSCoder) {
