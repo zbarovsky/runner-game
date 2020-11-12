@@ -8,7 +8,7 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var entityManager: EntityManager!
     
@@ -20,6 +20,7 @@ class GameScene: SKScene {
         entityManager = EntityManager(scene: self)
         
         self.physicsWorld.gravity = CGVector(dx: 0.0, dy: -20)
+        self.physicsWorld.contactDelegate = self
         
         let floor = Floor(imageName: "floor")
         if let floorComponent = floor.component(ofType: SpriteComponent.self) {
@@ -81,6 +82,11 @@ class GameScene: SKScene {
           let playerScore = player.component(ofType: PlayerComponent.self) {
           coin1Label.text = "\(playerScore.score)"
         }
-        
+    }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        if contact.bodyA.categoryBitMask == BitMaskCatergories.FloorCategory.rawValue && contact.bodyB.categoryBitMask == BitMaskCatergories.PlayerCategory.rawValue {
+            entityManager.jumpComponent()?.jumpAvailable = true
+        }
     }
 }
