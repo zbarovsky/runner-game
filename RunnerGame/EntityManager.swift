@@ -85,7 +85,7 @@ class EntityManager {
         if let jumpComp = jumpComponent() {
             if jumpComp.jumpAvailable == true {
             jumpComp.isJumping = true
-            print("Begin Jump")
+//            print("Begin Jump")
             }
         }
     }
@@ -93,7 +93,7 @@ class EntityManager {
     func endPlayerJump() {
         if let jumpComp = jumpComponent() {
             jumpComp.isJumping = false
-            print("End Jump")
+//            print("End Jump")
         }
     }
 

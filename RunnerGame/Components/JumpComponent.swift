@@ -36,7 +36,7 @@ class JumpComponent: GKComponent {
                         isJumping = false
                         jumpAvailable = false
                     } else {
-                        print(spritePhsyics.velocity)
+//                        print(spritePhsyics.velocity)
                         if spritePhsyics.velocity.dy < 500 {
                             if spritePhsyics.velocity.dy < 50 {
                                 spritePhsyics.velocity = CGVector(dx: 0.0, dy: 75.0)
