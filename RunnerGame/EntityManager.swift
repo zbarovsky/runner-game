@@ -16,7 +16,8 @@ class EntityManager {
     
     lazy var componentSystems: [GKComponentSystem] = {
         let playerSystem = GKComponentSystem(componentClass: PlayerComponent.self)
-        return [playerSystem]
+        let jumpSystem = GKComponentSystem(componentClass: JumpComponent.self)
+        return [playerSystem, jumpSystem]
     }()
     
     var toRemove = Set<GKEntity>()
@@ -68,14 +69,31 @@ class EntityManager {
       return nil
     }
     
-    func makePlayerJump() {
-        guard let playerEntity = player() else {
-             return
-         }
-         
-        if let jumpComponent = playerEntity.component(ofType: JumpComponent.self)
-        {
-            jumpComponent.jump(withVelocity: 175, forEntity:playerEntity)
+    func jumpComponent() -> JumpComponent? {
+      for entity in entities {
+          if let _ = entity.component(ofType: PlayerComponent.self) {
+            if let jumpComp = entity.component(ofType: JumpComponent.self)
+            {
+            return jumpComp
+            }
+          }
+      }
+      return nil
+    }
+    
+    func beginPlayerJump() {
+        if let jumpComp = jumpComponent() {
+            if jumpComp.jumpAvailable == true {
+            jumpComp.isJumping = true
+//            print("Begin Jump")
+            }
+        }
+    }
+    
+    func endPlayerJump() {
+        if let jumpComp = jumpComponent() {
+            jumpComp.isJumping = false
+//            print("End Jump")
         }
     }
 
