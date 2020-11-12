@@ -14,6 +14,7 @@ class Enemy: GKEntity {
         
         addComponent(spriteComponent)
         // TODO: make enemey component to init
+        // TODO: make a random spawning component?
         addComponent(EnemyMovementComponent())
     }
     required init?(coder aDecoder: NSCoder) {

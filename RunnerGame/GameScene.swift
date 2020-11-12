@@ -76,6 +76,9 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         entityManager.update(currentTime)
         
+        entityManager.summonEnemy()
+        
+        
         if let player = entityManager.player(),
           let playerScore = player.component(ofType: PlayerComponent.self) {
           coin1Label.text = "\(playerScore.score)"
