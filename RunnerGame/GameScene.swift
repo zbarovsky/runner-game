@@ -19,6 +19,8 @@ class GameScene: SKScene {
         
         entityManager = EntityManager(scene: self)
         
+        self.physicsWorld.gravity = CGVector(dx: 0.0, dy: -20)
+        
         let floor = Floor(imageName: "floor")
         if let floorComponent = floor.component(ofType: SpriteComponent.self) {
             floorComponent.node.position = CGPoint(x: floorComponent.node.size.width/2, y: floorComponent.node.size.height/6)
@@ -39,12 +41,10 @@ class GameScene: SKScene {
         coin1Label.verticalAlignmentMode = .center
         coin1Label.text = "10"
         self.addChild(coin1Label)
-
     }
     
-    
     func touchDown(atPoint pos : CGPoint) {
-        entityManager.makePlayerJump()
+        entityManager.beginPlayerJump()
         
     }
     
@@ -53,6 +53,7 @@ class GameScene: SKScene {
     }
     
     func touchUp(atPoint pos : CGPoint) {
+        entityManager.endPlayerJump()
 
     }
     
