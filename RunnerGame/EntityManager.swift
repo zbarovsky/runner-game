@@ -89,20 +89,32 @@ class EntityManager {
     }
     
     // function to spawn enemies at random
-    func summonEnemy() {
-        let toSummonOrNot = Bool.random()
+//    func summonEnemy() {
+//        let toSummonOrNot = true
+//
+//        if toSummonOrNot == true {
+//
+//            guard let enemyEntity = enemy() else {
+//                return
+//            }
+//
+//            let enemy = Enemy(image: "player" )
+//            if let enemyComponent = enemyEntity.component(ofType: SpriteComponent.self) {
+//                enemyComponent.node.position = CGPoint(x: scene.frame.maxX, y: scene.frame.minY)
+//            }
+//            add(enemy)
+//            enemyMovement()
+//        }
+//    }
+    
+    
+    func enemyMovement() {
+        guard let enemyEntity = enemy() else {
+            return
+        }
         
-        if toSummonOrNot == true {
-            
-            guard let enemyEntity = enemy() else {
-                return
-            }
-            
-            let enemy = Enemy(image: "player" )
-            if let enemyComponent = enemyEntity.component(ofType: SpriteComponent.self) {
-                enemyComponent.node.position = CGPoint(x: scene.frame.maxX, y: 50)
-            }
-            add(enemy)
+        if let movementComponent = enemyEntity.component(ofType: EnemyMovementComponent.self ) {
+            movementComponent.movement(withHaste: 20, forEntity: enemyEntity)
         }
     }
 }

@@ -5,7 +5,6 @@ class Enemy: GKEntity {
     init(image: String) {
         super.init()
         
-        // added sprite spawn to moving enemy entitiy
         let spriteComponent = SpriteComponent(texture: SKTexture(imageNamed: image))
         spriteComponent.node.physicsBody = SKPhysicsBody(texture:SKTexture(imageNamed: image), size: CGSize.init(width: spriteComponent.node.size.width, height: spriteComponent.node.size.height))
         spriteComponent.node.physicsBody?.allowsRotation = false
@@ -13,8 +12,6 @@ class Enemy: GKEntity {
         spriteComponent.node.physicsBody?.friction = 0.0
         
         addComponent(spriteComponent)
-        // TODO: make enemey component to init
-        // TODO: make a random spawning component?
         addComponent(EnemyMovementComponent())
     }
     required init?(coder aDecoder: NSCoder) {

@@ -31,6 +31,7 @@ class GameScene: SKScene {
         }
         entityManager.add(player)
         
+        
         coin1Label.fontSize = 50
         coin1Label.fontColor = SKColor.white
         coin1Label.position = CGPoint(x: 50, y: size.height - 50)
@@ -76,7 +77,25 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         entityManager.update(currentTime)
         
-        entityManager.summonEnemy()
+        func randSpawn() {
+            var counter = 0
+            enumerateChildNodes(withName: "enemy") { node, _ in
+              counter += 1
+            }
+            print(counter)
+            
+            let toSummonOrNot = Bool.random()
+            let enemy = Enemy(image: "player" )
+            
+            if toSummonOrNot == true {
+                if let enemyComponent = enemy.component(ofType: SpriteComponent.self) {
+                    enemyComponent.node.position = CGPoint(x: size.width + 30, y:size.height/2)
+                }
+                entityManager.add(enemy)
+                entityManager.enemyMovement()
+            }
+        }
+        randSpawn()
         
         
         if let player = entityManager.player(),

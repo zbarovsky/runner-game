@@ -11,6 +11,7 @@ import GameplayKit
 
 class EnemyMovementComponent: GKComponent {
     
+    
     override init() {
         super.init()
     }
