@@ -13,6 +13,7 @@ class JumpComponent: GKComponent {
     var isJumping = false
     var velocity:Double = 0
     var jumpAvailable = true
+    var hasTouchedGround = true
     
     override init() {
       super.init()

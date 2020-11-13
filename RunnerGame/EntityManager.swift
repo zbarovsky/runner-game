@@ -87,7 +87,7 @@ class EntityManager {
     
     func beginPlayerJump() {
         if let jumpComp = jumpComponent() {
-            if jumpComp.jumpAvailable == true {
+            if jumpComp.jumpAvailable == true && jumpComp.hasTouchedGround {
             jumpComp.isJumping = true
 //            print("Begin Jump")
             }

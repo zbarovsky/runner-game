@@ -93,6 +93,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         if contact.bodyA.categoryBitMask == BitMaskCatergories.FloorCategory.rawValue && contact.bodyB.categoryBitMask == BitMaskCatergories.PlayerCategory.rawValue {
             entityManager.jumpComponent()?.jumpAvailable = true
+            entityManager.jumpComponent()?.jumpAvailable = true
         }
     }
 }
