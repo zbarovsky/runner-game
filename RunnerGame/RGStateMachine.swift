@@ -23,7 +23,7 @@ class RGStateMenu: GKState {
         }
 
         override func didEnter(from previousState: GKState?) {
-            print("Did Enter Menu")
+            print("Did Enter State Menu")
         }
     
 }
@@ -35,7 +35,7 @@ class RGStatePlaying: GKState {
         }
 
         override func didEnter(from previousState: GKState?) {
-            print("Did State Playing")
+            print("Did Enter State Playing")
         }
     
 }
@@ -47,7 +47,7 @@ class RGStatePaused: GKState {
         }
 
         override func didEnter(from previousState: GKState?) {
-            print("Did Pause Game")
+            print("Did Enter State Pause")
         }
     
 }
@@ -59,7 +59,7 @@ class RGStateGameOver: GKState {
         }
 
         override func didEnter(from previousState: GKState?) {
-            print("Did End Game")
+            print("Did Enter State EndGame")
         }
     
 }
