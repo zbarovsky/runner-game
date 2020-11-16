@@ -81,15 +81,6 @@ class EntityManager {
         }
         return nil
     }
-    
-    func makePlayerJump() {
-        guard let playerEntity = player() else {
-             return
-         }
-         
-        if let jumpComponent = playerEntity.component(ofType: JumpComponent.self)
-        {
-            jumpComponent.jump(withVelocity: 175, forEntity:playerEntity)
 
     func jumpComponent() -> JumpComponent? {
       for entity in entities {

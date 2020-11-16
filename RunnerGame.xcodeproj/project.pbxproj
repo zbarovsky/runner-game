@@ -106,6 +106,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8436C54425633C8F00FC3169 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				434F3365255B163800AC0606 /* GlobalComponents */,
+				434F336A255B170F00AC0606 /* Player */,
+				433D0BB82559E8CB00FD05FD /* Enemies */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		846670142557D0E7009DAD79 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +123,7 @@
 				846670372557D0E9009DAD79 /* RunnerGameTests */,
 				846670422557D0E9009DAD79 /* RunnerGameUITests */,
 				8466701E2557D0E7009DAD79 /* Products */,
+				8436C54425633C8F00FC3169 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
