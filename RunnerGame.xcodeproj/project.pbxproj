@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-
-		433D0BB92559E8CB00FD05FD /* Enemies in Resources */ = {isa = PBXBuildFile; fileRef = 433D0BB82559E8CB00FD05FD /* Enemies */; };
-		434F3366255B163800AC0606 /* GlobalComponents in Resources */ = {isa = PBXBuildFile; fileRef = 434F3365255B163800AC0606 /* GlobalComponents */; };
-		434F336B255B170F00AC0606 /* Player in Resources */ = {isa = PBXBuildFile; fileRef = 434F336A255B170F00AC0606 /* Player */; };
 		434F3379255B279600AC0606 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 434F3378255B279600AC0606 /* README.md */; };
 		8416448D255F190700CA9D26 /* RGStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8416448C255F190700CA9D26 /* RGStateMachine.swift */; };
 		846670212557D0E7009DAD79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846670202557D0E7009DAD79 /* AppDelegate.swift */; };
@@ -109,6 +105,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8436C54425633C8F00FC3169 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				434F3365255B163800AC0606 /* GlobalComponents */,
+				434F336A255B170F00AC0606 /* Player */,
+				433D0BB82559E8CB00FD05FD /* Enemies */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		846670142557D0E7009DAD79 = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +122,7 @@
 				846670372557D0E9009DAD79 /* RunnerGameTests */,
 				846670422557D0E9009DAD79 /* RunnerGameUITests */,
 				8466701E2557D0E7009DAD79 /* Products */,
+				8436C54425633C8F00FC3169 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -303,10 +310,6 @@
 			files = (
 				84D42EDD255A2D0100CCBB2E /* launch.png in Resources */,
 				8466702C2557D0E7009DAD79 /* Main.storyboard in Resources */,
-				434F3366255B163800AC0606 /* GlobalComponents in Resources */,
-				434F336B255B170F00AC0606 /* Player in Resources */,
-				846670232557D0E7009DAD79 /* GameScene.sks in Resources */,
-				433D0BB92559E8CB00FD05FD /* Enemies in Resources */,
 				434F3379255B279600AC0606 /* README.md in Resources */,
 				8466702E2557D0E9009DAD79 /* Assets.xcassets in Resources */,
 				846670252557D0E7009DAD79 /* Actions.sks in Resources */,
