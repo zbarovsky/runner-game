@@ -21,12 +21,9 @@ class EnemyCountComponent: GKComponent {
         fatalError("init(coder:) has not been implement")
     }
     
-    override func update(deltaTime seconds: TimeInterval) {
-        super.update(deltaTime: seconds)
-        
-        //TODO: create enemyCount increase func.
+    func enemyCounter () {
+        //sudo code
+        // if enemy appears
+        // enemyCount increases by one
     }
-    
-    
-    
 }
