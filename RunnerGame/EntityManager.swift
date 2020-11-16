@@ -104,6 +104,7 @@ class EntityManager {
             }
             add(enemy)
             enemyMovement()
+            
         }
     }
     
