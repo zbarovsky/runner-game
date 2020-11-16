@@ -77,12 +77,14 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         entityManager.update(currentTime)
         
-        func randSpawn() {
-            var counter = 0
-            enumerateChildNodes(withName: "enemy") { node, _ in
-              counter += 1
-            }
-            print(counter)
+        var enemyCounter = 0;
+//        enumerateChildNodes(withName: "GKEntity") {
+//            node, _ in
+//            enemyCounter+=1
+//            print("in child node \(enemyCounter)")
+//        }
+        
+        func randSpawn(counter:Int) -> Int? {
             
             let toSummonOrNot = Bool.random()
             let enemy = Enemy(image: "player" )
@@ -91,11 +93,15 @@ class GameScene: SKScene {
                 if let enemyComponent = enemy.component(ofType: SpriteComponent.self) {
                     enemyComponent.node.position = CGPoint(x: size.width + 30, y:size.height/2)
                 }
+                // idea: add timeout function to space how often enemies appear on screen?
                 entityManager.add(enemy)
                 entityManager.enemyMovement()
+                //enemyCounter+=1
             }
+            print("🎮 \(enemyCounter)")
+            return enemyCounter
         }
-        randSpawn()
+        randSpawn(counter: enemyCounter)
         
         
         if let player = entityManager.player(),

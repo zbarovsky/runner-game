@@ -9,3 +9,5 @@ import Foundation
 
 let scoreInterval = TimeInterval(0.5)
 let scoreIncreasePerInterval = 1
+
+let enemyCounterIncrease = 1
