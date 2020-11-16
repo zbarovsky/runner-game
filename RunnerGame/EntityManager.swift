@@ -73,6 +73,24 @@ class EntityManager {
       return nil
     }
     
+    func enemy() -> GKEntity? {
+        for entity in entities {
+            if let _ = entity.component(ofType: SpriteComponent.self) {
+                return entity
+            }
+        }
+        return nil
+    }
+    
+    func makePlayerJump() {
+        guard let playerEntity = player() else {
+             return
+         }
+         
+        if let jumpComponent = playerEntity.component(ofType: JumpComponent.self)
+        {
+            jumpComponent.jump(withVelocity: 175, forEntity:playerEntity)
+
     func jumpComponent() -> JumpComponent? {
       for entity in entities {
           if let _ = entity.component(ofType: PlayerComponent.self) {
@@ -100,5 +118,35 @@ class EntityManager {
 //            print("End Jump")
         }
     }
+    
+    // function to spawn enemies at random
+    func summonEnemy(currentTime: TimeInterval) {
+        let spawnTime = currentTime.truncatingRemainder(dividingBy: 5)
 
+        if spawnTime <= 0.5 {
+
+            guard let enemyEntity = enemy() else {
+                return
+            }
+
+            let enemy = Enemy(image: "player" )
+            if let enemyComponent = enemyEntity.component(ofType: SpriteComponent.self) {
+                enemyComponent.node.position = CGPoint(x: scene.frame.maxX, y: scene.frame.minY)
+            }
+            add(enemy)
+            enemyMovement()
+            
+        }
+    }
+    
+    
+    func enemyMovement() {
+        guard let enemyEntity = enemy() else {
+            return
+        }
+        
+        if let movementComponent = enemyEntity.component(ofType: EnemyMovementComponent.self ) {
+            movementComponent.movement(withHaste: 20, forEntity: enemyEntity)
+        }
+    }
 }

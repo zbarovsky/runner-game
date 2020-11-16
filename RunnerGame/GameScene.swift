@@ -39,6 +39,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         entityManager.add(player)
         
+        
         coin1Label.fontSize = 50
         coin1Label.fontColor = SKColor.white
         coin1Label.position = CGPoint(x: 50, y: size.height - 50)
@@ -83,6 +84,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         entityManager.update(currentTime)
+        entityManager.summonEnemy(currentTime: currentTime)
         
         if let player = entityManager.player(),
           let playerScore = player.component(ofType: PlayerComponent.self) {
