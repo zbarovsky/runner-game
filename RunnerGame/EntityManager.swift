@@ -13,6 +13,7 @@ class EntityManager {
     
     var entities = Set<GKEntity>()
     let scene: SKScene
+    var stateMachine: RGStateMachine
     
     lazy var componentSystems: [GKComponentSystem] = {
         let playerSystem = GKComponentSystem(componentClass: PlayerComponent.self)
@@ -22,8 +23,9 @@ class EntityManager {
     
     var toRemove = Set<GKEntity>()
 
-    init(scene: SKScene) {
+    init(scene: SKScene, stateMachine: RGStateMachine) {
       self.scene = scene
+        self.stateMachine = stateMachine
     }
     
     func add(_ entity: GKEntity) {
@@ -48,10 +50,12 @@ class EntityManager {
     }
 
     func update(_ deltaTime: CFTimeInterval) {
-      for componentSystem in componentSystems {
-        componentSystem.update(deltaTime: deltaTime)
-      }
-
+        if stateMachine.currentState?.isKind(of: RGStatePlaying.self) == true {
+            for componentSystem in componentSystems {
+              componentSystem.update(deltaTime: deltaTime)
+            }
+        }
+     
       for currentRemove in toRemove {
         for componentSystem in componentSystems {
           componentSystem.removeComponent(foundIn: currentRemove)
@@ -83,7 +87,7 @@ class EntityManager {
     
     func beginPlayerJump() {
         if let jumpComp = jumpComponent() {
-            if jumpComp.jumpAvailable == true {
+            if jumpComp.jumpAvailable == true && jumpComp.hasTouchedGround {
             jumpComp.isJumping = true
 //            print("Begin Jump")
             }
