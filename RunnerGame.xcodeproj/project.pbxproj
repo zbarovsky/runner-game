@@ -10,6 +10,7 @@
 		4303B1A22563118F00578E71 /* EnemyCountComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4303B1A12563118F00578E71 /* EnemyCountComponent.swift */; };
 		433C7610255C6D3B00BD1929 /* EnemyMovementComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433C760F255C6D3B00BD1929 /* EnemyMovementComponent.swift */; };
 		434F3379255B279600AC0606 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 434F3378255B279600AC0606 /* README.md */; };
+		8416448D255F190700CA9D26 /* RGStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8416448C255F190700CA9D26 /* RGStateMachine.swift */; };
 		846670212557D0E7009DAD79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846670202557D0E7009DAD79 /* AppDelegate.swift */; };
 		846670252557D0E7009DAD79 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 846670242557D0E7009DAD79 /* Actions.sks */; };
 		846670272557D0E7009DAD79 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846670262557D0E7009DAD79 /* GameScene.swift */; };
@@ -22,6 +23,7 @@
 		849BFE47255C0D2D00BA2DD3 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BFE46255C0D2D00BA2DD3 /* Player.swift */; };
 		849BFE50255C0E4500BA2DD3 /* PlayerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BFE4F255C0E4500BA2DD3 /* PlayerComponent.swift */; };
 		849BFE5B255C0EFF00BA2DD3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BFE5A255C0EFF00BA2DD3 /* Constants.swift */; };
+		84BDD95A255CBD960082A4CA /* HelperClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BDD959255CBD960082A4CA /* HelperClass.swift */; };
 		84D42EDD255A2D0100CCBB2E /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D42EDC255A2D0000CCBB2E /* launch.png */; };
 		84E593B1255C02A700DCDA1B /* EntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E593B0255C02A700DCDA1B /* EntityManager.swift */; };
 		84E593C0255C059B00DCDA1B /* Floor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E593BF255C059B00DCDA1B /* Floor.swift */; };
@@ -51,6 +53,7 @@
 		4303B1A12563118F00578E71 /* EnemyCountComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyCountComponent.swift; sourceTree = "<group>"; };
 		433C760F255C6D3B00BD1929 /* EnemyMovementComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyMovementComponent.swift; sourceTree = "<group>"; };
 		434F3378255B279600AC0606 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		8416448C255F190700CA9D26 /* RGStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RGStateMachine.swift; path = RunnerGame/RGStateMachine.swift; sourceTree = SOURCE_ROOT; };
 		8466701D2557D0E7009DAD79 /* RunnerGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunnerGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		846670202557D0E7009DAD79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		846670242557D0E7009DAD79 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -69,6 +72,7 @@
 		849BFE46255C0D2D00BA2DD3 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		849BFE4F255C0E4500BA2DD3 /* PlayerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerComponent.swift; sourceTree = "<group>"; };
 		849BFE5A255C0EFF00BA2DD3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		84BDD959255CBD960082A4CA /* HelperClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HelperClass.swift; path = RunnerGame/HelperClass.swift; sourceTree = SOURCE_ROOT; };
 		84D42EDC255A2D0000CCBB2E /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
 		84E593B0255C02A700DCDA1B /* EntityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityManager.swift; sourceTree = "<group>"; };
 		84E593BF255C059B00DCDA1B /* Floor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Floor.swift; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 				84E593CA255C0B8700DCDA1B /* Entites */,
 				8466702A2557D0E7009DAD79 /* Main.storyboard */,
 				849BFE5A255C0EFF00BA2DD3 /* Constants.swift */,
+				84BDD959255CBD960082A4CA /* HelperClass.swift */,
 				8466702D2557D0E9009DAD79 /* Assets.xcassets */,
 				8466702F2557D0E9009DAD79 /* Info.plist */,
 				434F3378255B279600AC0606 /* README.md */,
@@ -172,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				84E593BF255C059B00DCDA1B /* Floor.swift */,
+				8416448C255F190700CA9D26 /* RGStateMachine.swift */,
 				84E593E0255C0C2200DCDA1B /* Enemy.swift */,
 				849BFE46255C0D2D00BA2DD3 /* Player.swift */,
 				84E593DF255C0C2200DCDA1B /* Objects.swift */,
@@ -326,8 +332,10 @@
 				846670272557D0E7009DAD79 /* GameScene.swift in Sources */,
 				84EC51F4255C14B100448CDA /* JumpComponent.swift in Sources */,
 				849BFE5B255C0EFF00BA2DD3 /* Constants.swift in Sources */,
+				84BDD95A255CBD960082A4CA /* HelperClass.swift in Sources */,
 				84E593C0255C059B00DCDA1B /* Floor.swift in Sources */,
 				849BFE3F255C0CA000BA2DD3 /* SpriteComponent.swift in Sources */,
+				8416448D255F190700CA9D26 /* RGStateMachine.swift in Sources */,
 				846670292557D0E7009DAD79 /* GameViewController.swift in Sources */,
 				84E593E2255C0C2200DCDA1B /* Enemy.swift in Sources */,
 				84E593B1255C02A700DCDA1B /* EntityManager.swift in Sources */,
@@ -507,6 +515,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S228NG5K95;
 				INFOPLIST_FILE = RunnerGame/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -526,6 +535,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S228NG5K95;
 				INFOPLIST_FILE = RunnerGame/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

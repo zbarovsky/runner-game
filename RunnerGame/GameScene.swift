@@ -8,16 +8,24 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var entityManager: EntityManager!
+    
+    var stateMachine: RGStateMachine!
     
     let coin1Label = SKLabelNode(fontNamed: "Courier-Bold")
 
     
     override func sceneDidLoad() {
+        stateMachine = RGStateMachine.init(states: [RGStatePaused.init(), RGStateMenu.init(), RGStatePlaying.init(), RGStateGameOver.init()])
+
+        entityManager = EntityManager(scene: self, stateMachine: stateMachine)
         
-        entityManager = EntityManager(scene: self)
+        stateMachine.enter(RGStateMenu.self)
+        
+        self.physicsWorld.gravity = CGVector(dx: 0.0, dy: -20)
+        self.physicsWorld.contactDelegate = self
         
         let floor = Floor(imageName: "floor")
         if let floorComponent = floor.component(ofType: SpriteComponent.self) {
@@ -40,12 +48,10 @@ class GameScene: SKScene {
         coin1Label.verticalAlignmentMode = .center
         coin1Label.text = "10"
         self.addChild(coin1Label)
-
     }
     
-    
     func touchDown(atPoint pos : CGPoint) {
-        entityManager.makePlayerJump()
+        entityManager.beginPlayerJump()
         
     }
     
@@ -54,11 +60,13 @@ class GameScene: SKScene {
     }
     
     func touchUp(atPoint pos : CGPoint) {
+        entityManager.endPlayerJump()
 
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchDown(atPoint: t.location(in: self)) }
+        stateMachine.enter(RGStatePlaying.self)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -82,6 +90,12 @@ class GameScene: SKScene {
           let playerScore = player.component(ofType: PlayerComponent.self) {
           coin1Label.text = "\(playerScore.score)"
         }
-        
+    }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        if contact.bodyA.categoryBitMask == BitMaskCatergories.FloorCategory.rawValue && contact.bodyB.categoryBitMask == BitMaskCatergories.PlayerCategory.rawValue {
+            entityManager.jumpComponent()?.jumpAvailable = true
+            entityManager.jumpComponent()?.jumpAvailable = true
+        }
     }
 }

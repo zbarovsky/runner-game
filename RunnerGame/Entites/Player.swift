@@ -15,9 +15,15 @@ class Player: GKEntity {
         
         let spriteComponent = SpriteComponent(texture: SKTexture(imageNamed: imageName))
         spriteComponent.node.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: imageName), size: CGSize.init(width: spriteComponent.node.size.width, height: spriteComponent.node.size.height))
-        spriteComponent.node.physicsBody?.allowsRotation = false
-        spriteComponent.node.physicsBody?.restitution = 0.0
-        spriteComponent.node.physicsBody?.friction = 0.0
+        if let physicsBody = spriteComponent.node.physicsBody {
+            physicsBody.allowsRotation = false
+            physicsBody.restitution = 0.0
+            physicsBody.friction = 0.0
+            physicsBody.categoryBitMask = BitMaskCatergories.PlayerCategory.rawValue
+            physicsBody.contactTestBitMask = BitMaskCatergories.FloorCategory.rawValue
+            physicsBody.collisionBitMask = BitMaskCatergories.FloorCategory.rawValue
+        }
+        
         addComponent(spriteComponent)
         addComponent(PlayerComponent.init())
         addComponent(JumpComponent())

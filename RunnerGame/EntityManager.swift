@@ -13,16 +13,19 @@ class EntityManager {
     
     var entities = Set<GKEntity>()
     let scene: SKScene
+    var stateMachine: RGStateMachine
     
     lazy var componentSystems: [GKComponentSystem] = {
         let playerSystem = GKComponentSystem(componentClass: PlayerComponent.self)
-        return [playerSystem]
+        let jumpSystem = GKComponentSystem(componentClass: JumpComponent.self)
+        return [playerSystem, jumpSystem]
     }()
     
     var toRemove = Set<GKEntity>()
 
-    init(scene: SKScene) {
+    init(scene: SKScene, stateMachine: RGStateMachine) {
       self.scene = scene
+        self.stateMachine = stateMachine
     }
     
     func add(_ entity: GKEntity) {
@@ -47,10 +50,12 @@ class EntityManager {
     }
 
     func update(_ deltaTime: CFTimeInterval) {
-      for componentSystem in componentSystems {
-        componentSystem.update(deltaTime: deltaTime)
-      }
-
+        if stateMachine.currentState?.isKind(of: RGStatePlaying.self) == true {
+            for componentSystem in componentSystems {
+              componentSystem.update(deltaTime: deltaTime)
+            }
+        }
+     
       for currentRemove in toRemove {
         for componentSystem in componentSystems {
           componentSystem.removeComponent(foundIn: currentRemove)
@@ -85,6 +90,32 @@ class EntityManager {
         if let jumpComponent = playerEntity.component(ofType: JumpComponent.self)
         {
             jumpComponent.jump(withVelocity: 175, forEntity:playerEntity)
+
+    func jumpComponent() -> JumpComponent? {
+      for entity in entities {
+          if let _ = entity.component(ofType: PlayerComponent.self) {
+            if let jumpComp = entity.component(ofType: JumpComponent.self)
+            {
+            return jumpComp
+            }
+          }
+      }
+      return nil
+    }
+    
+    func beginPlayerJump() {
+        if let jumpComp = jumpComponent() {
+            if jumpComp.jumpAvailable == true && jumpComp.hasTouchedGround {
+            jumpComp.isJumping = true
+//            print("Begin Jump")
+            }
+        }
+    }
+    
+    func endPlayerJump() {
+        if let jumpComp = jumpComponent() {
+            jumpComp.isJumping = false
+//            print("End Jump")
         }
     }
     
