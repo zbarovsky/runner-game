@@ -122,11 +122,10 @@ class EntityManager {
 
             let enemy = Enemy(image: "enemy" )
             if let enemyComponent = enemyEntity.component(ofType: SpriteComponent.self) {
-                enemyComponent.node.position = CGPoint(x: scene.frame.maxX, y: scene.frame.minY)
+                enemyComponent.node.position = CGPoint(x: deviceWidth(), y: deviceHeight())
             }
             add(enemy)
             enemyMovement()
-            
         }
     }
     
