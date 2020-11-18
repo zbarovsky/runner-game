@@ -239,16 +239,4 @@ class EntityManager {
     }
     
 }
-    
-/*
-    func enemyMovement() {
-        guard let enemyEntity = enemy() else {
-            return
-        }
-        
-        if let movementComponent = enemyEntity.component(ofType: EnemyMovementComponent.self ) {
-            movementComponent.movement(withHaste: 20, forEntity: enemyEntity)
-        }
-    }
- */
 
