@@ -32,7 +32,6 @@ class EntityManager {
         NotificationCenter.default.addObserver(self, selector: #selector(onDidEnterStateEndGame(_:)), name: .didEnterStateGameOver, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onDidEnterStatePaused(_:)), name: .didEnterStatePaused, object: nil)
 
-        
     }
     
     deinit {
@@ -46,6 +45,16 @@ class EntityManager {
         if let player = player() {
             if let component = player.component(ofType: PlayerComponent.self) {
                 component.score = 0
+                
+                for entity in enemies() {
+                     remove(entity)
+                }
+                
+                for entity in entities {
+                    if let _ = entity.component(ofType: LabelComponent.self) {
+                        remove(entity)
+                    }
+                }
             }
         }
     }
@@ -69,7 +78,11 @@ class EntityManager {
       entities.insert(entity)
 
         if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
-        scene.addChild(spriteNode)
+            scene.addChild(spriteNode)
+        }
+        
+        if let labelNode = entity.component(ofType: LabelComponent.self)?.node {
+            scene.addChild(labelNode)
         }
         
         for componentSystem in componentSystems {
@@ -81,6 +94,10 @@ class EntityManager {
       if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
         spriteNode.removeFromParent()
       }
+        
+        if let labelNode = entity.component(ofType: LabelComponent.self)?.node {
+          labelNode.removeFromParent()
+        }
 
       entities.remove(entity)
       toRemove.insert(entity)
@@ -154,10 +171,28 @@ class EntityManager {
     }
     
     func endGame() {
-        for entity in enemies() {
-            remove(entity)
-        }
         
+        var endGameLabel: Label!
+        endGameLabel = Label(text: "Game Over")
+        if let labelNode = endGameLabel.component(ofType: LabelComponent.self) {
+            labelNode.node.position = CGPoint(x: deviceWidth()/2, y: deviceHeight()/2 + labelNode.node.frame.size.height/2 + 5)
+        }
+        add(endGameLabel)
+        
+        var endGameLabel2: Label!
+        endGameLabel2 = Label(text: "Tap to play again")
+        if let labelNode = endGameLabel2.component(ofType: LabelComponent.self) {
+            labelNode.node.position = CGPoint(x: deviceWidth()/2, y: deviceHeight()/2 - labelNode.node.frame.size.height/2 - 5)
+        }
+        add(endGameLabel2)
+        
+        
+        for entity in enemies() {
+            if let enemyComponent = entity.component(ofType: SpriteComponent.self) {
+                enemyComponent.node.physicsBody = nil
+                enemyComponent.node.removeAllActions()
+            }
+        }
     }
     
     // function to spawn enemies at random

@@ -48,6 +48,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         coin1Label.verticalAlignmentMode = .center
         coin1Label.text = "10"
         self.addChild(coin1Label)
+        
+        var newGameLabel: Label!
+        newGameLabel = Label(text: "Tap to start")
+        if let labelNode = newGameLabel.component(ofType: LabelComponent.self) {
+            labelNode.node.position = CGPoint(x: deviceWidth()/2, y: deviceHeight()/2)
+        }
+        entityManager.add(newGameLabel)
     }
     
     func touchDown(atPoint pos : CGPoint) {
