@@ -147,6 +147,7 @@
 				84E593CB255C0B9200DCDA1B /* Components */,
 				84E593CA255C0B8700DCDA1B /* Entites */,
 				8466702A2557D0E7009DAD79 /* Main.storyboard */,
+				8416448C255F190700CA9D26 /* RGStateMachine.swift */,
 				849BFE5A255C0EFF00BA2DD3 /* Constants.swift */,
 				84BDD959255CBD960082A4CA /* HelperClass.swift */,
 				8466702D2557D0E9009DAD79 /* Assets.xcassets */,
@@ -190,7 +191,6 @@
 			isa = PBXGroup;
 			children = (
 				84E593BF255C059B00DCDA1B /* Floor.swift */,
-				8416448C255F190700CA9D26 /* RGStateMachine.swift */,
 				84E593E0255C0C2200DCDA1B /* Enemy.swift */,
 				849BFE46255C0D2D00BA2DD3 /* Player.swift */,
 				84E593DF255C0C2200DCDA1B /* Objects.swift */,

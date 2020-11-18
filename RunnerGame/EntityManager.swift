@@ -26,7 +26,44 @@ class EntityManager {
     init(scene: SKScene, stateMachine: RGStateMachine) {
       self.scene = scene
         self.stateMachine = stateMachine
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidEnterStatePlaying(_:)), name: .didEnterStatePlaying, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidEnterStateMenu(_:)), name: .didEnterStateMenu, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidEnterStateEndGame(_:)), name: .didEnterStateGameOver, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidEnterStatePaused(_:)), name: .didEnterStatePaused, object: nil)
+
+        
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    //MARK: - Notifications
+    
+    @objc func onDidEnterStatePlaying(_ notification:Notification) {
+        // Do something now
+        if let player = player() {
+            if let component = player.component(ofType: PlayerComponent.self) {
+                component.score = 0
+            }
+        }
+    }
+    
+    @objc func onDidEnterStateEndGame(_ notification:Notification) {
+        // Do something now
+        endGame()
+    }
+    
+    @objc func onDidEnterStatePaused(_ notification:Notification) {
+        // Do something now
+    }
+    
+    @objc func onDidEnterStateMenu(_ notification:Notification) {
+        // Do something now
+    }
+    
+    //MARK: Lifecycle
     
     func add(_ entity: GKEntity) {
       entities.insert(entity)
@@ -51,6 +88,7 @@ class EntityManager {
 
     func update(_ deltaTime: CFTimeInterval) {
         if stateMachine.currentState?.isKind(of: RGStatePlaying.self) == true {
+            summonEnemy(currentTime: deltaTime)
             for componentSystem in componentSystems {
               componentSystem.update(deltaTime: deltaTime)
             }
@@ -64,6 +102,8 @@ class EntityManager {
       toRemove.removeAll()
     }
     
+    //MARK: Functions
+    
     func player() -> GKEntity? {
       for entity in entities {
           if let _ = entity.component(ofType: PlayerComponent.self) {
@@ -73,13 +113,16 @@ class EntityManager {
       return nil
     }
     
-    func enemy() -> GKEntity? {
+    func enemies() -> [GKEntity] {
+        
+        var enemyEntities = [GKEntity.init()]
+        
         for entity in entities {
             if let _ = entity.component(ofType: EnemyComponent.self) {
-                return entity
+                enemyEntities.append(entity)
             }
         }
-        return nil
+        return enemyEntities
     }
 
     func jumpComponent() -> JumpComponent? {
@@ -110,6 +153,13 @@ class EntityManager {
         }
     }
     
+    func endGame() {
+        for entity in enemies() {
+            remove(entity)
+        }
+        
+    }
+    
     // function to spawn enemies at random
     func summonEnemy(currentTime: TimeInterval) {
         let spawnTime = currentTime.truncatingRemainder(dividingBy: 5)
@@ -127,12 +177,18 @@ class EntityManager {
                 }
             }
             add(enemy)
-            enemyMovement()
+            
+            if let movementComponent = enemy.component(ofType: EnemyMovementComponent.self ) {
+                movementComponent.movement(withHaste: 20, forEntity: enemy)
+            }
+            //enemyMovement()
+            
+            
             
         }
     }
     
-    
+/*
     func enemyMovement() {
         guard let enemyEntity = enemy() else {
             return
@@ -142,4 +198,5 @@ class EntityManager {
             movementComponent.movement(withHaste: 20, forEntity: enemyEntity)
         }
     }
+ */
 }

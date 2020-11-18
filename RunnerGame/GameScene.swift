@@ -18,7 +18,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     
     override func sceneDidLoad() {
-        stateMachine = RGStateMachine.init(states: [RGStatePaused.init(), RGStateMenu.init(), RGStatePlaying.init(), RGStateGameOver.init()])
+        stateMachine = RGStateMachine.init(states: [RGStatePaused.init(), RGStateMenu.init(), RGStatePlaying.init(), RGStateEndGame.init()])
 
         entityManager = EntityManager(scene: self, stateMachine: stateMachine)
         
@@ -84,7 +84,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         entityManager.update(currentTime)
-        entityManager.summonEnemy(currentTime: currentTime)
         
         if let player = entityManager.player(),
           let playerScore = player.component(ofType: PlayerComponent.self) {
@@ -96,6 +95,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if contact.bodyA.categoryBitMask == BitMaskCatergories.FloorCategory.rawValue && contact.bodyB.categoryBitMask == BitMaskCatergories.PlayerCategory.rawValue {
             entityManager.jumpComponent()?.jumpAvailable = true
             entityManager.jumpComponent()?.jumpAvailable = true
+        }
+        
+        if (contact.bodyB.categoryBitMask == BitMaskCatergories.EnemyCategory.rawValue && contact.bodyA.categoryBitMask == BitMaskCatergories.PlayerCategory.rawValue) || (contact.bodyA.categoryBitMask == BitMaskCatergories.EnemyCategory.rawValue && contact.bodyB.categoryBitMask == BitMaskCatergories.PlayerCategory.rawValue) {
+            //Enemy Did Contact with Player
+//            entityManager.endGame()
+            stateMachine.enter(RGStateEndGame.self)
+            
         }
     }
 }
