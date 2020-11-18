@@ -147,7 +147,7 @@ class EntityManager {
           if let _ = entity.component(ofType: PlayerComponent.self) {
             if let jumpComp = entity.component(ofType: JumpComponent.self)
             {
-            return jumpComp
+                return jumpComp
             }
           }
       }
@@ -157,8 +157,9 @@ class EntityManager {
     func beginPlayerJump() {
         if let jumpComp = jumpComponent() {
             if jumpComp.jumpAvailable == true && jumpComp.hasTouchedGround {
-            jumpComp.isJumping = true
-//            print("Begin Jump")
+                jumpComp.isJumping = true
+                jumpComp.hasTouchedGround = false
+            print("Begin Jump")
             }
         }
     }
@@ -166,7 +167,12 @@ class EntityManager {
     func endPlayerJump() {
         if let jumpComp = jumpComponent() {
             jumpComp.isJumping = false
-//            print("End Jump")
+            if jumpComp.hasTouchedGround {
+                jumpComp.jumpAvailable = true
+            } else {
+                jumpComp.jumpAvailable = false
+            }
+            print("End Jump")
         }
     }
     
