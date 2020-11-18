@@ -18,7 +18,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     
     override func sceneDidLoad() {
-        stateMachine = RGStateMachine.init(states: [RGStatePaused.init(), RGStateMenu.init(), RGStatePlaying.init(), RGStateGameOver.init()])
+        stateMachine = RGStateMachine.init(states: [RGStatePaused.init(), RGStateMenu.init(), RGStatePlaying.init(), RGStateEndGame.init()])
 
         entityManager = EntityManager(scene: self, stateMachine: stateMachine)
         
@@ -48,6 +48,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         coin1Label.verticalAlignmentMode = .center
         coin1Label.text = "10"
         self.addChild(coin1Label)
+        
+        var newGameLabel: Label!
+        newGameLabel = Label(text: "Tap to start")
+        if let labelNode = newGameLabel.component(ofType: LabelComponent.self) {
+            labelNode.node.position = CGPoint(x: deviceWidth()/2, y: deviceHeight()/2)
+        }
+        entityManager.add(newGameLabel)
     }
     
     func touchDown(atPoint pos : CGPoint) {
@@ -84,7 +91,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         entityManager.update(currentTime)
-        entityManager.summonEnemy(currentTime: currentTime)
         
         if let player = entityManager.player(),
           let playerScore = player.component(ofType: PlayerComponent.self) {
@@ -95,7 +101,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         if contact.bodyA.categoryBitMask == BitMaskCatergories.FloorCategory.rawValue && contact.bodyB.categoryBitMask == BitMaskCatergories.PlayerCategory.rawValue {
             entityManager.jumpComponent()?.jumpAvailable = true
-            entityManager.jumpComponent()?.jumpAvailable = true
+            entityManager.jumpComponent()?.hasTouchedGround = true
+        }
+        
+        if (contact.bodyB.categoryBitMask == BitMaskCatergories.EnemyCategory.rawValue && contact.bodyA.categoryBitMask == BitMaskCatergories.PlayerCategory.rawValue) || (contact.bodyA.categoryBitMask == BitMaskCatergories.EnemyCategory.rawValue && contact.bodyB.categoryBitMask == BitMaskCatergories.PlayerCategory.rawValue) {
+            //Enemy Did Contact with Player
+//            entityManager.endGame()
+            stateMachine.enter(RGStateEndGame.self)
+            
         }
     }
 }

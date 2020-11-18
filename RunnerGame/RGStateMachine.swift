@@ -23,7 +23,9 @@ class RGStateMenu: GKState {
         }
 
         override func didEnter(from previousState: GKState?) {
-            print("Did Enter State Menu")
+//            print("Did Enter State Menu")
+            NotificationCenter.default.post(name: .didEnterStateMenu, object: nil)
+
         }
     
 }
@@ -31,11 +33,12 @@ class RGStateMenu: GKState {
 class RGStatePlaying: GKState {
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
-        return stateClass is RGStatePaused.Type || stateClass is RGStateGameOver.Type
+        return stateClass is RGStatePaused.Type || stateClass is RGStateEndGame.Type
         }
 
         override func didEnter(from previousState: GKState?) {
-            print("Did Enter State Playing")
+//            print("Did Enter State Playing")
+            NotificationCenter.default.post(name: .didEnterStatePlaying, object: nil)
         }
     
 }
@@ -47,19 +50,21 @@ class RGStatePaused: GKState {
         }
 
         override func didEnter(from previousState: GKState?) {
-            print("Did Enter State Pause")
+//            print("Did Enter State Pause")
+            NotificationCenter.default.post(name: .didEnterStatePaused, object: nil)
         }
     
 }
 
-class RGStateGameOver: GKState {
+class RGStateEndGame: GKState {
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
             return stateClass is RGStatePlaying.Type || stateClass is RGStateMenu.Type
         }
 
         override func didEnter(from previousState: GKState?) {
-            print("Did Enter State EndGame")
+//            print("Did Enter State EndGame")
+            NotificationCenter.default.post(name: .didEnterStateGameOver, object: nil)
         }
     
 }

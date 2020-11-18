@@ -7,7 +7,7 @@
 
 import Foundation
 
-let scoreInterval = TimeInterval(0.5)
+let scoreInterval = TimeInterval(0.75)
 let scoreIncreasePerInterval = 1
 
 let enemyCounterIncrease = 1
@@ -18,3 +18,9 @@ enum BitMaskCatergories : UInt32 {
     case FloorCategory = 4
 }
 
+extension Notification.Name {
+    static let didEnterStatePlaying = Notification.Name("didEnterStatePlaying")
+    static let didEnterStateGameOver = Notification.Name("didEnterStateGameOver")
+    static let didEnterStateMenu = Notification.Name("didEnterStateMenu")
+    static let didEnterStatePaused = Notification.Name("didEnterStatePaused")
+}
