@@ -12,6 +12,7 @@ class Enemy: GKEntity {
         spriteComponent.node.physicsBody?.friction = 0.0
         
         addComponent(spriteComponent)
+        addComponent(EnemyComponent())
         addComponent(EnemyMovementComponent())
         //addComponent(EnemyCountComponent())
     }
