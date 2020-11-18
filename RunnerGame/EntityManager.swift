@@ -116,10 +116,6 @@ class EntityManager {
 
         if spawnTime <= 0.5 {
 
-//            guard let enemyEntity = enemy() else {
-//                return
-//            }
-
             let enemy = Enemy(image: "enemy" )
             if let enemyComponent = enemy.component(ofType: SpriteComponent.self) {
                 if let texture = enemyComponent.node.texture {
