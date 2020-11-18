@@ -75,7 +75,7 @@ class EntityManager {
     
     func enemy() -> GKEntity? {
         for entity in entities {
-            if let _ = entity.component(ofType: SpriteComponent.self) {
+            if let _ = entity.component(ofType: EnemyComponent.self) {
                 return entity
             }
         }
@@ -116,13 +116,15 @@ class EntityManager {
 
         if spawnTime <= 0.5 {
 
-            guard let enemyEntity = enemy() else {
-                return
-            }
+//            guard let enemyEntity = enemy() else {
+//                return
+//            }
 
             let enemy = Enemy(image: "enemy" )
-            if let enemyComponent = enemyEntity.component(ofType: SpriteComponent.self) {
-                enemyComponent.node.position = CGPoint(x: deviceWidth(), y: deviceHeight())
+            if let enemyComponent = enemy.component(ofType: SpriteComponent.self) {
+                if let texture = enemyComponent.node.texture {
+                    enemyComponent.node.position = CGPoint(x: deviceWidth() + texture.size().width/2, y: deviceHeight()/2)
+                }
             }
             add(enemy)
             enemyMovement()
