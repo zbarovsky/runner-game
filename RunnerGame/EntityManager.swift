@@ -206,15 +206,13 @@ class EntityManager {
         let spawnTime = currentTime.truncatingRemainder(dividingBy: 5)
         
         let counter = enemies().count
-        print(counter)
+        //print(counter)
         
         if (counter < 2 && spawnTime <= 0.5 ) {
             let enemy = Enemy(image: "enemy" )
                  if let enemyComponent = enemy.component(ofType: SpriteComponent.self) {
                      if let texture = enemyComponent.node.texture {
                          enemyComponent.node.position = CGPoint(x: deviceWidth() + texture.size().width/2, y: deviceHeight()/2)
-                        print(enemyComponent.node.position)
-                        print(deviceWidth())
                      }
                  }
                  add(enemy)
@@ -224,7 +222,6 @@ class EntityManager {
                     //print(enemySpeed)
              }
         }
-        banishEnemy()
     }
     
     func banishEnemy() {
