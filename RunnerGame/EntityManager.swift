@@ -204,40 +204,36 @@ class EntityManager {
     // function to spawn enemies at random
     func summonEnemy(currentTime: TimeInterval) {
         let spawnTime = currentTime.truncatingRemainder(dividingBy: 5)
-
-        if spawnTime <= 0.5 {
-
-//            guard let enemyEntity = enemy() else {
-//                return
-//            }
-
+        
+        let counter = enemies().count
+        //print(counter)
+        
+        if (counter < 2 && spawnTime <= 0.5 ) {
             let enemy = Enemy(image: "enemy" )
-            if let enemyComponent = enemy.component(ofType: SpriteComponent.self) {
-                if let texture = enemyComponent.node.texture {
-                    enemyComponent.node.position = CGPoint(x: deviceWidth() + texture.size().width/2, y: deviceHeight()/2)
-                }
-            }
-            add(enemy)
-            
-            if let movementComponent = enemy.component(ofType: EnemyMovementComponent.self ) {
-                movementComponent.movement(withHaste: 20, forEntity: enemy)
-            }
-            //enemyMovement()
-            
-            
-            
+                 if let enemyComponent = enemy.component(ofType: SpriteComponent.self) {
+                     if let texture = enemyComponent.node.texture {
+                         enemyComponent.node.position = CGPoint(x: deviceWidth() + texture.size().width/2, y: deviceHeight()/2)
+                     }
+                 }
+                 add(enemy)
+    
+                 if let movementComponent = enemy.component(ofType: EnemyMovementComponent.self ) {
+                     movementComponent.movement(withHaste: 1, forEntity: enemy)
+                    //print(enemySpeed)
+             }
         }
     }
     
-/*
-    func enemyMovement() {
-        guard let enemyEntity = enemy() else {
-            return
-        }
-        
-        if let movementComponent = enemyEntity.component(ofType: EnemyMovementComponent.self ) {
-            movementComponent.movement(withHaste: 20, forEntity: enemyEntity)
+    func banishEnemy() {
+        for entity in enemies() {
+            if let enemyComponent = entity.component(ofType: SpriteComponent.self) {
+                if enemyComponent.node.position.x <= scene.frame.minX {
+                    //print("🎮 out of screen \(enemyComponent.node.position)")
+                    remove(entity)
+                }
+            }
         }
     }
- */
+    
 }
+

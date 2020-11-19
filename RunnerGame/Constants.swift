@@ -12,6 +12,9 @@ let scoreIncreasePerInterval = 1
 
 let enemyCounterIncrease = 1
 
+let enemySpeed = Double.random(in: 1...10)
+let enemiesSpawned = Int.random(in: 0...5)
+
 enum BitMaskCatergories : UInt32 {
     case PlayerCategory = 1
     case EnemyCategory = 2
