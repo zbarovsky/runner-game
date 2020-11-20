@@ -33,7 +33,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         entityManager.add(floor)
         
-        let player = Player(imageName: "player")
+        let player = Player(imageName: "character_maleAdventurer_idle")
         if let playerComponent = player.component(ofType: SpriteComponent.self) {
             playerComponent.node.position = CGPoint(x:size.width/6, y: size.height/2)
         }
