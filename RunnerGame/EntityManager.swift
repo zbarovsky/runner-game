@@ -159,7 +159,7 @@ class EntityManager {
             if jumpComp.jumpAvailable == true && jumpComp.hasTouchedGround {
                 jumpComp.isJumping = true
                 jumpComp.hasTouchedGround = false
-            print("Begin Jump")
+//            print("Begin Jump")
             }
         }
     }
@@ -172,7 +172,7 @@ class EntityManager {
             } else {
                 jumpComp.jumpAvailable = false
             }
-            print("End Jump")
+//            print("End Jump")
         }
     }
     
@@ -203,7 +203,7 @@ class EntityManager {
     
     // function to spawn enemies at random
     func summonEnemy(currentTime: TimeInterval) {
-        let spawnTime = currentTime.truncatingRemainder(dividingBy: 5)
+        let spawnTime = currentTime.truncatingRemainder(dividingBy: 2)
         
         let counter = enemies().count
         //print(counter)
@@ -218,7 +218,7 @@ class EntityManager {
                  add(enemy)
     
                  if let movementComponent = enemy.component(ofType: EnemyMovementComponent.self ) {
-                     movementComponent.movement(withHaste: 1, forEntity: enemy)
+                     movementComponent.movement(withHaste: enemySpeed, forEntity: enemy)
                     //print(enemySpeed)
              }
         }
