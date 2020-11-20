@@ -50,6 +50,13 @@ class EntityManager {
                     playerSprite.addPlayerAnimation()
                 }
                 
+                if let jumpComp = jumpComponent() {
+                    jumpComp.isJumping = false
+                    jumpComp.jumpAvailable = true
+                    jumpComp.hasTouchedGround = true
+                    
+                }
+                
                 for entity in enemies() {
                      remove(entity)
                 }

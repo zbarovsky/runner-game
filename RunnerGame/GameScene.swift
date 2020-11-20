@@ -66,7 +66,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func touchUp(atPoint pos : CGPoint) {
-        entityManager.endPlayerJump()
 
     }
     
@@ -85,6 +84,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
+        if stateMachine.currentState!.isKind(of: RGStatePlaying.self ){
+            entityManager.endPlayerJump()
+        }
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
