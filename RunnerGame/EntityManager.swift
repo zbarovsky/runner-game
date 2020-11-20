@@ -45,6 +45,10 @@ class EntityManager {
         if let player = player() {
             if let component = player.component(ofType: PlayerComponent.self) {
                 component.score = 0
+                if let playerSprite = player.component(ofType: SpriteComponent.self) {
+                    playerSprite.node.isPaused = false
+                    playerSprite.addPlayerAnimation()
+                }
                 
                 for entity in enemies() {
                      remove(entity)
@@ -160,6 +164,12 @@ class EntityManager {
                 jumpComp.isJumping = true
                 jumpComp.hasTouchedGround = false
 //            print("Begin Jump")
+                if let playerEntity = player() {
+                    if let playerSprite = playerEntity.component(ofType: SpriteComponent.self) {
+                        playerSprite.node.removeAction(forKey: "playerWalking")
+                        playerSprite.node.texture = SKTexture.init(imageNamed: "character_maleAdventurer_jump")
+                    }
+                }
             }
         }
     }
@@ -197,6 +207,11 @@ class EntityManager {
             if let enemyComponent = entity.component(ofType: SpriteComponent.self) {
                 enemyComponent.node.physicsBody = nil
                 enemyComponent.node.removeAllActions()
+            }
+        }
+        if let player = player() {
+            if let playerComponent = player.component(ofType: SpriteComponent.self) {
+                playerComponent.node.isPaused = true
             }
         }
     }

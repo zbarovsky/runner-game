@@ -58,7 +58,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func touchDown(atPoint pos : CGPoint) {
-        entityManager.beginPlayerJump()
         
     }
     
@@ -73,7 +72,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchDown(atPoint: t.location(in: self)) }
+        if stateMachine.currentState!.isKind(of: RGStatePlaying.self ){
+            entityManager.beginPlayerJump()
+        }
         stateMachine.enter(RGStatePlaying.self)
+        
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -101,8 +104,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func didBegin(_ contact: SKPhysicsContact) {
         if contact.bodyA.categoryBitMask == BitMaskCatergories.FloorCategory.rawValue && contact.bodyB.categoryBitMask == BitMaskCatergories.PlayerCategory.rawValue {
-            entityManager.jumpComponent()?.jumpAvailable = true
-            entityManager.jumpComponent()?.hasTouchedGround = true
+            if stateMachine.currentState!.isKind(of: RGStatePlaying.self ){
+                entityManager.jumpComponent()?.jumpAvailable = true
+                entityManager.jumpComponent()?.hasTouchedGround = true
+            }
         }
         
         if (contact.bodyB.categoryBitMask == BitMaskCatergories.EnemyCategory.rawValue && contact.bodyA.categoryBitMask == BitMaskCatergories.PlayerCategory.rawValue) || (contact.bodyA.categoryBitMask == BitMaskCatergories.EnemyCategory.rawValue && contact.bodyB.categoryBitMask == BitMaskCatergories.PlayerCategory.rawValue) {
