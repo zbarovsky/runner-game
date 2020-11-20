@@ -13,7 +13,18 @@ class JumpComponent: GKComponent {
     var isJumping = false
     var velocity:Double = 0
     var jumpAvailable = true
-    var hasTouchedGround = true
+    var hasTouchedGround = true {
+        didSet {
+            if hasTouchedGround == false {
+                
+            } else {
+                let entity = self.entity!
+                if let spriteComponent = entity.component(ofType: SpriteComponent.self)  {
+                    spriteComponent.addPlayerAnimation()
+                }
+            }
+        }
+    }
     
     override init() {
       super.init()

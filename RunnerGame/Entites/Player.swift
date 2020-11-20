@@ -12,9 +12,11 @@ class Player: GKEntity {
     
     init(imageName: String){
         super.init()
+            
+        let spriteComponent = SpriteComponent(texture: SKTexture(imageNamed: "character_maleAdventurer_idle"))
+//        spriteComponent.addPlayerAnimation()
         
-        let spriteComponent = SpriteComponent(texture: SKTexture(imageNamed: imageName))
-        spriteComponent.node.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: imageName), size: CGSize.init(width: spriteComponent.node.size.width, height: spriteComponent.node.size.height))
+        spriteComponent.node.physicsBody = SKPhysicsBody(texture: spriteComponent.node.texture!, size: spriteComponent.node.texture!.size())
         if let physicsBody = spriteComponent.node.physicsBody {
             physicsBody.allowsRotation = false
             physicsBody.restitution = 0.0

@@ -45,6 +45,10 @@ class EntityManager {
         if let player = player() {
             if let component = player.component(ofType: PlayerComponent.self) {
                 component.score = 0
+                if let playerSprite = player.component(ofType: SpriteComponent.self) {
+                    playerSprite.node.isPaused = false
+                    playerSprite.addPlayerAnimation()
+                }
                 
                 for entity in enemies() {
                      remove(entity)
@@ -159,7 +163,13 @@ class EntityManager {
             if jumpComp.jumpAvailable == true && jumpComp.hasTouchedGround {
                 jumpComp.isJumping = true
                 jumpComp.hasTouchedGround = false
-            print("Begin Jump")
+//            print("Begin Jump")
+                if let playerEntity = player() {
+                    if let playerSprite = playerEntity.component(ofType: SpriteComponent.self) {
+                        playerSprite.node.removeAction(forKey: "playerWalking")
+                        playerSprite.node.texture = SKTexture.init(imageNamed: "character_maleAdventurer_jump")
+                    }
+                }
             }
         }
     }
@@ -172,7 +182,7 @@ class EntityManager {
             } else {
                 jumpComp.jumpAvailable = false
             }
-            print("End Jump")
+//            print("End Jump")
         }
     }
     
@@ -199,11 +209,16 @@ class EntityManager {
                 enemyComponent.node.removeAllActions()
             }
         }
+        if let player = player() {
+            if let playerComponent = player.component(ofType: SpriteComponent.self) {
+                playerComponent.node.isPaused = true
+            }
+        }
     }
     
     // function to spawn enemies at random
     func summonEnemy(currentTime: TimeInterval) {
-        let spawnTime = currentTime.truncatingRemainder(dividingBy: 5)
+        let spawnTime = currentTime.truncatingRemainder(dividingBy: 2)
         
         let counter = enemies().count
         //print(counter)
@@ -218,7 +233,7 @@ class EntityManager {
                  add(enemy)
     
                  if let movementComponent = enemy.component(ofType: EnemyMovementComponent.self ) {
-                     movementComponent.movement(withHaste: 1, forEntity: enemy)
+                     movementComponent.movement(withHaste: enemySpeed, forEntity: enemy)
                     //print(enemySpeed)
              }
         }
