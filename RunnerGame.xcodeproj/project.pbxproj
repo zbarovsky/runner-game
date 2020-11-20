@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4303B1A22563118F00578E71 /* EnemyCountComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4303B1A12563118F00578E71 /* EnemyCountComponent.swift */; };
 		433C7610255C6D3B00BD1929 /* EnemyMovementComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433C760F255C6D3B00BD1929 /* EnemyMovementComponent.swift */; };
 		434F3379255B279600AC0606 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 434F3378255B279600AC0606 /* README.md */; };
+		43A379DF256879C800353358 /* ObjectComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A379DE256879C800353358 /* ObjectComponent.swift */; };
 		8416448D255F190700CA9D26 /* RGStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8416448C255F190700CA9D26 /* RGStateMachine.swift */; };
 		8421406825653EBE00762A4D /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421406725653EBE00762A4D /* Label.swift */; };
 		8421406D25653F1600762A4D /* LabelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421406C25653F1600762A4D /* LabelComponent.swift */; };
@@ -54,9 +54,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4303B1A12563118F00578E71 /* EnemyCountComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyCountComponent.swift; sourceTree = "<group>"; };
 		433C760F255C6D3B00BD1929 /* EnemyMovementComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyMovementComponent.swift; sourceTree = "<group>"; };
 		434F3378255B279600AC0606 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		43A379DE256879C800353358 /* ObjectComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectComponent.swift; sourceTree = "<group>"; };
 		8416448C255F190700CA9D26 /* RGStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RGStateMachine.swift; path = RunnerGame/RGStateMachine.swift; sourceTree = SOURCE_ROOT; };
 		8421406725653EBE00762A4D /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		8421406C25653F1600762A4D /* LabelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelComponent.swift; sourceTree = "<group>"; };
@@ -212,7 +212,7 @@
 				84EC51F3255C14B100448CDA /* JumpComponent.swift */,
 				849BFE3E255C0CA000BA2DD3 /* SpriteComponent.swift */,
 				433C760F255C6D3B00BD1929 /* EnemyMovementComponent.swift */,
-				4303B1A12563118F00578E71 /* EnemyCountComponent.swift */,
+				43A379DE256879C800353358 /* ObjectComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -361,9 +361,9 @@
 				846670292557D0E7009DAD79 /* GameViewController.swift in Sources */,
 				84E593E2255C0C2200DCDA1B /* Enemy.swift in Sources */,
 				84E593B1255C02A700DCDA1B /* EntityManager.swift in Sources */,
-				4303B1A22563118F00578E71 /* EnemyCountComponent.swift in Sources */,
 				849BFE50255C0E4500BA2DD3 /* PlayerComponent.swift in Sources */,
 				8421406D25653F1600762A4D /* LabelComponent.swift in Sources */,
+				43A379DF256879C800353358 /* ObjectComponent.swift in Sources */,
 				84E593E1255C0C2200DCDA1B /* Objects.swift in Sources */,
 				8421406825653EBE00762A4D /* Label.swift in Sources */,
 				433C7610255C6D3B00BD1929 /* EnemyMovementComponent.swift in Sources */,
