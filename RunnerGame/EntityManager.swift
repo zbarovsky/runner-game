@@ -117,6 +117,7 @@ class EntityManager {
     func update(_ deltaTime: CFTimeInterval) {
         if stateMachine.currentState?.isKind(of: RGStatePlaying.self) == true {
             summonEnemy(currentTime: deltaTime)
+            spawnObj(currentTime: deltaTime)
             for componentSystem in componentSystems {
               componentSystem.update(deltaTime: deltaTime)
             }
@@ -151,6 +152,18 @@ class EntityManager {
             }
         }
         return enemyEntities
+    }
+    
+    func objects() -> [GKEntity] {
+        
+        var objectEntity = [GKEntity.init()]
+        
+        for entity in entities {
+            if let _ = entity.component(ofType: ObjectComponent.self) {
+                objectEntity.append(entity)
+            }
+        }
+        return objectEntity
     }
 
     func jumpComponent() -> JumpComponent? {
@@ -238,14 +251,14 @@ class EntityManager {
                      }
                  }
                  add(enemy)
-    
+                // movement component for enemies
                  if let movementComponent = enemy.component(ofType: EnemyMovementComponent.self ) {
                      movementComponent.movement(withHaste: enemySpeed, forEntity: enemy)
                     //print(enemySpeed)
              }
         }
     }
-    
+    // remove enemies once they get past gamescreen
     func banishEnemy() {
         for entity in enemies() {
             if let enemyComponent = entity.component(ofType: SpriteComponent.self) {
@@ -257,5 +270,24 @@ class EntityManager {
         }
     }
     
+    // lets go summon some cars
+    func spawnObj(currentTime: TimeInterval) {
+        let spawnTime = currentTime.truncatingRemainder(dividingBy: 5)
+        
+        let counter = objects().count
+        
+        if (counter < 2 && spawnTime <= 0.5) {
+            let object = Object(image: "policecar")
+            if let objectComponent = object.component(ofType: SpriteComponent.self) {
+                if let texture = objectComponent.node.texture {
+                    objectComponent.node.position = CGPoint(x: deviceWidth() + texture.size().width/4, y: deviceHeight()/2)
+                }
+            }
+            add(object)
+            
+            //TODO: Create movement for police car to move towards player to jump over.
+            
+        }
+    }
+    
 }
-

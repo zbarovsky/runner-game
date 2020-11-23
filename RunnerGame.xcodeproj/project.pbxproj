@@ -10,6 +10,7 @@
 		433C7610255C6D3B00BD1929 /* EnemyMovementComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433C760F255C6D3B00BD1929 /* EnemyMovementComponent.swift */; };
 		434F3379255B279600AC0606 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 434F3378255B279600AC0606 /* README.md */; };
 		43A379DF256879C800353358 /* ObjectComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A379DE256879C800353358 /* ObjectComponent.swift */; };
+		43E67C64256C3D3600CE13AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43E67C63256C3D3600CE13AB /* Assets.xcassets */; };
 		8416448D255F190700CA9D26 /* RGStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8416448C255F190700CA9D26 /* RGStateMachine.swift */; };
 		8421406825653EBE00762A4D /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421406725653EBE00762A4D /* Label.swift */; };
 		8421406D25653F1600762A4D /* LabelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8421406C25653F1600762A4D /* LabelComponent.swift */; };
@@ -18,7 +19,6 @@
 		846670272557D0E7009DAD79 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846670262557D0E7009DAD79 /* GameScene.swift */; };
 		846670292557D0E7009DAD79 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846670282557D0E7009DAD79 /* GameViewController.swift */; };
 		8466702C2557D0E7009DAD79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8466702A2557D0E7009DAD79 /* Main.storyboard */; };
-		8466702E2557D0E9009DAD79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8466702D2557D0E9009DAD79 /* Assets.xcassets */; };
 		846670392557D0E9009DAD79 /* RunnerGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846670382557D0E9009DAD79 /* RunnerGameTests.swift */; };
 		846670442557D0E9009DAD79 /* RunnerGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846670432557D0E9009DAD79 /* RunnerGameUITests.swift */; };
 		849BFE3F255C0CA000BA2DD3 /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BFE3E255C0CA000BA2DD3 /* SpriteComponent.swift */; };
@@ -57,6 +57,7 @@
 		433C760F255C6D3B00BD1929 /* EnemyMovementComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyMovementComponent.swift; sourceTree = "<group>"; };
 		434F3378255B279600AC0606 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		43A379DE256879C800353358 /* ObjectComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectComponent.swift; sourceTree = "<group>"; };
+		43E67C63256C3D3600CE13AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/Assets.xcassets"; sourceTree = "<group>"; };
 		8416448C255F190700CA9D26 /* RGStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RGStateMachine.swift; path = RunnerGame/RGStateMachine.swift; sourceTree = SOURCE_ROOT; };
 		8421406725653EBE00762A4D /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		8421406C25653F1600762A4D /* LabelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelComponent.swift; sourceTree = "<group>"; };
@@ -66,7 +67,6 @@
 		846670262557D0E7009DAD79 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		846670282557D0E7009DAD79 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		8466702B2557D0E7009DAD79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8466702D2557D0E9009DAD79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8466702F2557D0E9009DAD79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		846670342557D0E9009DAD79 /* RunnerGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunnerGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		846670382557D0E9009DAD79 /* RunnerGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerGameTests.swift; sourceTree = "<group>"; };
@@ -154,7 +154,7 @@
 				8416448C255F190700CA9D26 /* RGStateMachine.swift */,
 				849BFE5A255C0EFF00BA2DD3 /* Constants.swift */,
 				84BDD959255CBD960082A4CA /* HelperClass.swift */,
-				8466702D2557D0E9009DAD79 /* Assets.xcassets */,
+				43E67C63256C3D3600CE13AB /* Assets.xcassets */,
 				84BFCEF7256347AF00184AFA /* enemy.png */,
 				8466702F2557D0E9009DAD79 /* Info.plist */,
 				434F3378255B279600AC0606 /* README.md */,
@@ -324,7 +324,7 @@
 				8466702C2557D0E7009DAD79 /* Main.storyboard in Resources */,
 				84BFCEF8256347AF00184AFA /* enemy.png in Resources */,
 				434F3379255B279600AC0606 /* README.md in Resources */,
-				8466702E2557D0E9009DAD79 /* Assets.xcassets in Resources */,
+				43E67C64256C3D3600CE13AB /* Assets.xcassets in Resources */,
 				846670252557D0E7009DAD79 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
