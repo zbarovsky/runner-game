@@ -20,7 +20,7 @@ class Object: GKEntity {
         
         addComponent(spriteComponent)
         addComponent(ObjectComponent.init())
-        // addComponent(ObjectMovementComponent())
+        addComponent(EnemyMovementComponent())
         
     }
     

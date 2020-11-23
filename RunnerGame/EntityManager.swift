@@ -285,8 +285,22 @@ class EntityManager {
             }
             add(object)
             
-            //TODO: Create movement for police car to move towards player to jump over.
-            
+            // movement for police car to move towards player to jump over.
+            if let movementComponent = object.component(ofType: EnemyMovementComponent.self){
+                movementComponent.movement(withHaste: enemySpeed, forEntity: object)
+            }
+        }
+    }
+    
+    // remove object from scene
+    func removeObj() {
+        for object in objects() {
+            if let objectComponent = object.component(ofType: SpriteComponent.self) {
+                if objectComponent.node.position.x <= scene.frame.minX {
+                    //print("car hit edge of screen")
+                    remove(object)
+                }
+            }
         }
     }
     

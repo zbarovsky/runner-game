@@ -114,13 +114,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8436C54425633C8F00FC3169 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		846670142557D0E7009DAD79 = {
 			isa = PBXGroup;
 			children = (
@@ -128,7 +121,6 @@
 				846670372557D0E9009DAD79 /* RunnerGameTests */,
 				846670422557D0E9009DAD79 /* RunnerGameUITests */,
 				8466701E2557D0E7009DAD79 /* Products */,
-				8436C54425633C8F00FC3169 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
