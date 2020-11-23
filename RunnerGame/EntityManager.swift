@@ -297,7 +297,7 @@ class EntityManager {
         for object in objects() {
             if let objectComponent = object.component(ofType: SpriteComponent.self) {
                 if objectComponent.node.position.x <= scene.frame.minX {
-                    //print("car hit edge of screen 💩")
+                    //print("car hit edge of screen 💩 butts")
                     remove(object)
                 }
             }
