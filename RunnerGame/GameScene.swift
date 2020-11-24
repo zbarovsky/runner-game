@@ -97,6 +97,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func update(_ currentTime: TimeInterval) {
         entityManager.update(currentTime)
         entityManager.banishEnemy()
+        entityManager.removeObj()
         
         if let player = entityManager.player(),
           let playerScore = player.component(ofType: PlayerComponent.self) {
