@@ -21,6 +21,7 @@ enum BitMaskCatergories : UInt32 {
     case PlayerCategory = 1
     case EnemyCategory = 2
     case FloorCategory = 4
+    case ObjectCategory = 8
 }
 
 extension Notification.Name {

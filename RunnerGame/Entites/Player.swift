@@ -22,7 +22,7 @@ class Player: GKEntity {
             physicsBody.friction = 0.0
             physicsBody.categoryBitMask = BitMaskCatergories.PlayerCategory.rawValue
             physicsBody.contactTestBitMask = BitMaskCatergories.FloorCategory.rawValue
-            physicsBody.collisionBitMask = BitMaskCatergories.FloorCategory.rawValue
+            physicsBody.collisionBitMask = BitMaskCatergories.FloorCategory.rawValue | BitMaskCatergories.ObjectCategory.rawValue
         }
         
         addComponent(spriteComponent)

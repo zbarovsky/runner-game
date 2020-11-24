@@ -13,8 +13,12 @@ class Object: GKEntity {
             physicsBody.allowsRotation = false
             physicsBody.restitution = 0.0
             physicsBody.friction = 0.0
+                    
+            physicsBody.categoryBitMask = BitMaskCatergories.ObjectCategory.rawValue
+//          need to add collision detection here
+//          physicsBody.contactTestBitMask = BitMaskCatergories.FloorCategory.rawValue | BitMaskCatergories.PlayerCategory.rawValue
             
-            // need to add collision detection here
+            physicsBody.collisionBitMask = BitMaskCatergories.FloorCategory.rawValue | BitMaskCatergories.PlayerCategory.rawValue
         }
         
         

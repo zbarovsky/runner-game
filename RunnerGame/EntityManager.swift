@@ -61,6 +61,10 @@ class EntityManager {
                      remove(entity)
                 }
                 
+                for entity in objects() {
+                    remove(entity)
+                }
+                
                 for entity in entities {
                     if let _ = entity.component(ofType: LabelComponent.self) {
                         remove(entity)
@@ -229,6 +233,14 @@ class EntityManager {
                 enemyComponent.node.removeAllActions()
             }
         }
+        
+        for entity in objects() {
+            if let enemyComponent = entity.component(ofType: SpriteComponent.self) {
+                enemyComponent.node.physicsBody = nil
+                enemyComponent.node.removeAllActions()
+            }
+        }
+        
         if let player = player() {
             if let playerComponent = player.component(ofType: SpriteComponent.self) {
                 playerComponent.node.isPaused = true
