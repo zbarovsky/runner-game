@@ -11,7 +11,6 @@ import GameplayKit
 class JumpComponent: GKComponent {
     
     var isJumping = false
-    var velocity:Double = 0
     var jumpAvailable = true
     var hasTouchedGround = true {
         didSet {
@@ -28,7 +27,7 @@ class JumpComponent: GKComponent {
     
     override init() {
       super.init()
-        velocity = 20
+
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -49,13 +48,13 @@ class JumpComponent: GKComponent {
                         jumpAvailable = false
                     } else {
 //                        print(spritePhsyics.velocity)
-                        if spritePhsyics.velocity.dy < 500 {
+                        if spritePhsyics.velocity.dy < 1000 {
                             if spritePhsyics.velocity.dy < 50 {
                                 spritePhsyics.velocity = CGVector(dx: 0.0, dy: 75.0)
                             }
-                            spriteComponent.node.run(SKAction.applyImpulse(CGVector.init(dx: 0, dy: velocity), duration: 0.01))
+                            spriteComponent.node.run(SKAction.applyImpulse(CGVector.init(dx: 0, dy: jumpVelocity), duration: 0.01))
                         } else {
-                            spritePhsyics.velocity = CGVector(dx: 0.0, dy: 500.0)
+                            spritePhsyics.velocity = CGVector(dx: 0.0, dy: 1000.0)
                         }
                     }
                 }

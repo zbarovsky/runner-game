@@ -24,7 +24,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         stateMachine.enter(RGStateMenu.self)
         
-        self.physicsWorld.gravity = CGVector(dx: 0.0, dy: -20)
+        self.physicsWorld.gravity = CGVector(dx: 0.0, dy: -35)
         self.physicsWorld.contactDelegate = self
         
         let floor = Floor(imageName: "floor")
