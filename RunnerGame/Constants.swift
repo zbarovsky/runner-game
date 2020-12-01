@@ -18,10 +18,10 @@ var enemySpeed = Double.random(in: 1...3)
 var enemiesSpawned = Int.random(in: 0...5)
 
 enum BitMaskCatergories : UInt32 {
-    case PlayerCategory = 1
-    case EnemyCategory = 2
-    case FloorCategory = 4
-    case ObjectCategory = 8
+    case PlayerCategory = 1 // 0001
+    case EnemyCategory = 2  // 0010
+    case FloorCategory = 4  // 0100
+    case ObjectCategory = 8 // 1000
 }
 
 extension Notification.Name {
