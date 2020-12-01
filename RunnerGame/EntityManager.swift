@@ -248,6 +248,8 @@ class EntityManager {
         }
     }
     
+    // MARK: Enemy Functions
+    
     // function to spawn enemies at random
     func summonEnemy(currentTime: TimeInterval) {
         let spawnTime = currentTime.truncatingRemainder(dividingBy: 2)
@@ -259,6 +261,8 @@ class EntityManager {
             let enemy = Enemy(image: "enemy" )
                  if let enemyComponent = enemy.component(ofType: SpriteComponent.self) {
                      if let texture = enemyComponent.node.texture {
+                        // TODO: IF STATEMENT THAT SAYS IF COLLISION WITH TOP OF ENEMY/OBJECT MOVE BACK ELSE SPAWN
+                        // maybe remove collision detection between enemies && self, and enemies && objects??
                          enemyComponent.node.position = CGPoint(x: deviceWidth() + texture.size().width/2, y: deviceHeight()/2)
                      }
                  }
