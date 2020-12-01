@@ -7,16 +7,6 @@
 
 import Foundation
 
-let scoreInterval = TimeInterval(0.75)
-let scoreIncreasePerInterval = 1
-
-let enemyCounterIncrease = 1
-
-let jumpVelocity = 50
-
-var enemySpeed = Double.random(in: 1...3)
-var enemiesSpawned = Int.random(in: 0...5)
-
 enum BitMaskCatergories : UInt32 {
     case PlayerCategory = 1
     case EnemyCategory = 2

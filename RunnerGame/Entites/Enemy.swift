@@ -16,7 +16,7 @@ class Enemy: GKEntity {
             //Contact sets when contactBegin gets called
             physicsBody.contactTestBitMask = BitMaskCatergories.PlayerCategory.rawValue
             //Collision sets what objects interact with physics
-            physicsBody.collisionBitMask = BitMaskCatergories.FloorCategory.rawValue | BitMaskCatergories.EnemyCategory.rawValue
+            physicsBody.collisionBitMask = BitMaskCatergories.FloorCategory.rawValue //| BitMaskCatergories.EnemyCategory.rawValue
         }
         
         addComponent(spriteComponent)
