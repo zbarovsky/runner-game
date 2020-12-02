@@ -6,6 +6,10 @@
 //
 
 import Foundation
+import GameplayKit
+
+// randomizer for any functions that need it
+//let randomizer = GKRandomSource()
 
 enum BitMaskCatergories : UInt32 {
     case PlayerCategory = 1

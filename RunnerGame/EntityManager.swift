@@ -257,7 +257,7 @@ class EntityManager {
         let counter = enemies().count
         //print(counter)
         
-        if (counter < 2 && spawnTime <= 0.5 ) {
+        if (counter < 5 && spawnTime <= 0.5 ) {
             let enemy = Enemy(image: "enemy" )
                  if let enemyComponent = enemy.component(ofType: SpriteComponent.self) {
                      if let texture = enemyComponent.node.texture {
@@ -269,8 +269,8 @@ class EntityManager {
                  add(enemy)
                 // movement component for enemies
                  if let movementComponent = enemy.component(ofType: EnemyMovementComponent.self ) {
-                     movementComponent.movement(withHaste: enemySpeed, forEntity: enemy)
-                    //print(enemySpeed)
+                    movementComponent.movement(withHaste: enemySpeed, forEntity: enemy)
+                    print(enemySpeed)
              }
         }
     }
