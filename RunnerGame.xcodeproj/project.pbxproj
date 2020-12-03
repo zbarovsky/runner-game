@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		433C7610255C6D3B00BD1929 /* EnemyMovementComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433C760F255C6D3B00BD1929 /* EnemyMovementComponent.swift */; };
 		434F3379255B279600AC0606 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 434F3378255B279600AC0606 /* README.md */; };
+		43A1C8E025796CDD00B2F69B /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1C8DF25796CDD00B2F69B /* ButtonComponent.swift */; };
 		43A379DF256879C800353358 /* ObjectComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A379DE256879C800353358 /* ObjectComponent.swift */; };
 		43A918B225770A69003F2089 /* GameVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A918B125770A69003F2089 /* GameVariables.swift */; };
 		8416448D255F190700CA9D26 /* RGStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8416448C255F190700CA9D26 /* RGStateMachine.swift */; };
@@ -57,6 +58,7 @@
 /* Begin PBXFileReference section */
 		433C760F255C6D3B00BD1929 /* EnemyMovementComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyMovementComponent.swift; sourceTree = "<group>"; };
 		434F3378255B279600AC0606 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		43A1C8DF25796CDD00B2F69B /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
 		43A379DE256879C800353358 /* ObjectComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectComponent.swift; sourceTree = "<group>"; };
 		43A918B125770A69003F2089 /* GameVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVariables.swift; sourceTree = "<group>"; };
 		8416448C255F190700CA9D26 /* RGStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RGStateMachine.swift; path = RunnerGame/RGStateMachine.swift; sourceTree = SOURCE_ROOT; };
@@ -208,6 +210,7 @@
 				849BFE3E255C0CA000BA2DD3 /* SpriteComponent.swift */,
 				433C760F255C6D3B00BD1929 /* EnemyMovementComponent.swift */,
 				43A379DE256879C800353358 /* ObjectComponent.swift */,
+				43A1C8DF25796CDD00B2F69B /* ButtonComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				84EC51F4255C14B100448CDA /* JumpComponent.swift in Sources */,
 				849BFE5B255C0EFF00BA2DD3 /* Constants.swift in Sources */,
 				84BDD95A255CBD960082A4CA /* HelperClass.swift in Sources */,
+				43A1C8E025796CDD00B2F69B /* ButtonComponent.swift in Sources */,
 				84E593C0255C059B00DCDA1B /* Floor.swift in Sources */,
 				43A918B225770A69003F2089 /* GameVariables.swift in Sources */,
 				84BFCF0025646F0100184AFA /* EnemyComponent.swift in Sources */,
