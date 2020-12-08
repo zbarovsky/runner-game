@@ -9,18 +9,41 @@ import Foundation
 import SpriteKit
 import GameplayKit
 
-class ButtonComponent: SKSpriteNode {
+class ButtonComponent: SKShapeNode {
     
-    init(texture: SKTexture, color: UIColor, size: CGSize) {
+    
+    
+    
+    // BUTTON EXTENDS DOWN TO CIRCLE AND RECT CLASSES TO MAKE SPECIFIC BUTTON SHAPES WITH SUBCLASSES OF EACH
+    
+    class Circle {
+        init(ButtonComponent: ButtonComponent, rect: CGRect, cornerRadius: CGFloat) {
+            
+            
+        }
         
-        
-        
-        
-        super.init(texture: texture, color: color, size: size)
+        required init?(coder aDecoder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
     }
     
-    required init?(coder: NSCoder) {
+    
+    class Rect {
+        init(ButtonComponent: ButtonComponent, circleOfRadius: CGFloat) {
+         
+            
+        }
+            
+        required init?(coder aDecoder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+    }
+    
+    
+    
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
 }
 
