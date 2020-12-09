@@ -9,16 +9,21 @@ import Foundation
 import SpriteKit
 import GameplayKit
 
-class ButtonComponent: SKShapeNode {
-    
-    
+class ButtonComponent: GKComponent {
     
     
     // BUTTON EXTENDS DOWN TO CIRCLE AND RECT CLASSES TO MAKE SPECIFIC BUTTON SHAPES WITH SUBCLASSES OF EACH
     
-    class Circle {
+    class Rect {
+        
+        let node: SKShapeNode
+        
         init(ButtonComponent: ButtonComponent, rect: CGRect, cornerRadius: CGFloat) {
-            
+            node = SKShapeNode.init(rect: rect, cornerRadius: cornerRadius)
+            node.zPosition = 100
+            node.fillColor = .blue
+            node.lineWidth = 10
+            node.glowWidth = 30
             
         }
         
@@ -28,9 +33,16 @@ class ButtonComponent: SKShapeNode {
     }
     
     
-    class Rect {
-        init(ButtonComponent: ButtonComponent, circleOfRadius: CGFloat) {
-         
+    class Circle {
+        
+        let node: SKShapeNode
+        
+        init(ButtonComponent: ButtonComponent, radius: CGFloat) {
+            node = SKShapeNode.init(circleOfRadius: radius)
+            node.zPosition = 100
+            node.fillColor = .red
+            node.lineWidth = 10
+            node.glowWidth = 30
             
         }
             
