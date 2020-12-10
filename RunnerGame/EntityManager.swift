@@ -100,6 +100,14 @@ class EntityManager {
             scene.addChild(labelNode)
         }
         
+        if let buttonNodeCircle = entity.component(ofType: Circle.self)?.node {
+            scene.addChild(buttonNodeCircle)
+        }
+        
+        if let buttonNodeRect = entity.component(ofType: Rect.self)?.node {
+            scene.addChild(buttonNodeRect)
+        }
+        
         for componentSystem in componentSystems {
           componentSystem.addComponent(foundIn: entity)
         }

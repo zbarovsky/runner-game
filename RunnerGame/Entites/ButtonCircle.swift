@@ -22,3 +22,13 @@ class ButtonCircle: GKEntity {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+// MARK: Example of adding a circle
+
+//        var testButton: ButtonCircle!
+//        testButton = ButtonCircle(radius: 100)
+//        if let buttonNodeCircle = testButton.component(ofType: Circle.self) {
+//            buttonNode.node.position = CGPoint(x: deviceWidth()/2, y: deviceHeight()/2)
+//            print("there should be a circle apparently \(buttonNode.node.position)")
+//        }
+//        entityManager.add(testButton)

@@ -53,8 +53,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         newGameLabel = Label(text: "Tap to start")
         if let labelNode = newGameLabel.component(ofType: LabelComponent.self) {
             labelNode.node.position = CGPoint(x: deviceWidth()/2, y: deviceHeight()/2)
+            print("start game label position \(labelNode.node.position)")
         }
         entityManager.add(newGameLabel)
+        
     }
     
     func touchDown(atPoint pos : CGPoint) {

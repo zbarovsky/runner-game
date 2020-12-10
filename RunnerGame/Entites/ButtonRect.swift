@@ -22,3 +22,13 @@ class ButtonRect: GKEntity {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+// MARK: Example of adding a rectangle
+
+//        var testSquare: ButtonRect!
+//        testSquare = ButtonRect(rect: CGRect(x: 0, y: 0, width: 100, height: 150), cornerRadius: 10)
+//        if let buttonNodeRect = testSquare.component(ofType: Rect.self) {
+//            buttonNodeRect.node.position = CGPoint(x: deviceWidth()/2, y: deviceHeight()/2)
+//            print("square printed \(buttonNodeRect.node.position)")
+//        }
+//        entityManager.add(testSquare)
