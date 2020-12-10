@@ -18,10 +18,10 @@ import GameplayKit
         init(rect: CGRect, cornerRadius: CGFloat) {
             node = SKShapeNode.init(rect: rect, cornerRadius: cornerRadius)
             node.zPosition = 100
-            node.fillColor = .blue
-            node.lineWidth = 10
-            node.glowWidth = 30
-            
+            //node.fillColor = .blue
+            node.lineWidth = 2
+            node.glowWidth = 3
+                
             super.init()
         }
         
@@ -38,9 +38,9 @@ import GameplayKit
         init(radius: CGFloat) {
             node = SKShapeNode.init(circleOfRadius: radius)
             node.zPosition = 100
-            node.fillColor = .red
-            node.lineWidth = 10
-            node.glowWidth = 30
+            // node.fillColor = .red
+            node.lineWidth = 2
+            node.glowWidth = 3
             
             super.init()
         }
