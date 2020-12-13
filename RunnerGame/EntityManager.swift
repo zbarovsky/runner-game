@@ -18,7 +18,8 @@ class EntityManager {
     lazy var componentSystems: [GKComponentSystem] = {
         let playerSystem = GKComponentSystem(componentClass: PlayerComponent.self)
         let jumpSystem = GKComponentSystem(componentClass: JumpComponent.self)
-        return [playerSystem, jumpSystem]
+        let floorSystem = GKComponentSystem(componentClass: FloorComponent.self)
+        return [playerSystem, jumpSystem, floorSystem]
     }()
     
     var toRemove = Set<GKEntity>()

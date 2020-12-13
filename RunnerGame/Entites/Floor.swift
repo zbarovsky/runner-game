@@ -15,17 +15,18 @@ class Floor: GKEntity {
         
         let spriteComponent = SpriteComponent(texture: SKTexture(imageNamed: imageName))
         
-        spriteComponent.node.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: imageName), size: CGSize.init(width: spriteComponent.node.size.width*2, height: spriteComponent.node.size.height))
+        spriteComponent.node.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: imageName), size: CGSize.init(width: spriteComponent.node.size.width, height: spriteComponent.node.size.height))
         if let physicsBody = spriteComponent.node.physicsBody {
             physicsBody.restitution = 0.0
             physicsBody.isDynamic = false
             physicsBody.categoryBitMask = BitMaskCatergories.FloorCategory.rawValue
             physicsBody.contactTestBitMask = BitMaskCatergories.EnemyCategory.rawValue
-            physicsBody.collisionBitMask = BitMaskCatergories.PlayerCategory.rawValue
+            physicsBody.collisionBitMask = BitMaskCatergories.PlayerCategory.rawValue | BitMaskCatergories.EnemyCategory.rawValue | BitMaskCatergories.ObjectCategory.rawValue
         }
         
         
         addComponent(spriteComponent)
+        addComponent(FloorComponent())
 
     }
     

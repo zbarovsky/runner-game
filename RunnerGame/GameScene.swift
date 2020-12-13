@@ -27,11 +27,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.gravity = CGVector(dx: 0.0, dy: -35)
         self.physicsWorld.contactDelegate = self
         
-        let floor = Floor(imageName: "floor")
-        if let floorComponent = floor.component(ofType: SpriteComponent.self) {
-            floorComponent.node.position = CGPoint(x: floorComponent.node.size.width/2, y: floorComponent.node.size.height/6)
-        }
-        entityManager.add(floor)
+        createGround()
+        
+//        let floor = Floor(imageName: "floor")
+//        if let floorComponent = floor.component(ofType: SpriteComponent.self) {
+//            floorComponent.node.position = CGPoint(x: floorComponent.node.size.width/2, y: floorComponent.node.size.height/6)
+//        }
+//        entityManager.add(floor)
         
         let player = Player(imageName: "character_maleAdventurer_idle")
         if let playerComponent = player.component(ofType: SpriteComponent.self) {
@@ -55,6 +57,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             labelNode.node.position = CGPoint(x: deviceWidth()/2, y: deviceHeight()/2)
         }
         entityManager.add(newGameLabel)
+    }
+    
+    func createGround() {
+
+        for i in 0 ... 1 {
+            let floor = Floor.init(imageName: "floor")
+            if let floorComponent = floor.component(ofType: SpriteComponent.self) {
+                floorComponent.node.zPosition = -10
+                if let floorTexture = floorComponent.node.texture {
+                    let zeroPoint = (floorTexture.size().width - deviceWidth()) / 2
+                    floorComponent.node.position = CGPoint(x: (floorTexture.size().width / 2.0 + (floorTexture.size().width * CGFloat(i))) + zeroPoint, y: floorTexture.size().height / 6)
+                    self.entityManager.add(floor)
+                }
+            }
+        }
     }
     
     func touchDown(atPoint pos : CGPoint) {
