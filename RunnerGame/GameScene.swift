@@ -67,8 +67,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 floorComponent.node.zPosition = -10
                 if let floorTexture = floorComponent.node.texture {
                     let zeroPoint = (floorTexture.size().width - deviceWidth()) / 2
-                    floorComponent.node.position = CGPoint(x: (floorTexture.size().width / 2.0 + (floorTexture.size().width * CGFloat(i))) + zeroPoint, y: floorTexture.size().height / 6)
-                    
+                    floorComponent.node.position = CGPoint(x: (floorTexture.size().width / 2.0 + (floorTexture.size().width * CGFloat(i))) - zeroPoint, y: floorTexture.size().height / 6)
+                
                     self.entityManager.add(floor)
                 }
             }

@@ -37,10 +37,9 @@ class FloorComponent: GKComponent {
         guard let sprite = self.entity?.component(ofType: SpriteComponent.self)?.node else {
                     return
         }
-        if sprite.position.x <= -sprite.texture!.size().width + sprite.texture!.size().width/2 {
+        if sprite.position.x <= -sprite.texture!.size().width/2 {
             let difference:CGFloat = sprite.position.x + sprite.texture!.size().width/2
-            let zeroPoint = (sprite.texture!.size().width - deviceWidth()) / 2 
-            sprite.position.x = sprite.texture!.size().width + sprite.texture!.size().width/2 - zeroPoint + difference
+            sprite.position.x = sprite.texture!.size().width + sprite.texture!.size().width/2 + difference
             print("\(difference)")
         } else {
             if let previousTime = previousTime {
