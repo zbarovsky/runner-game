@@ -43,6 +43,12 @@ class EntityManager {
     
     @objc func onDidEnterStatePlaying(_ notification:Notification) {
         // Do something now
+        
+        for floorComp in floorComponent() {
+            floorComp.newGame = true
+            floorComp.gameIsRunning = true
+        }
+        
         if let player = player() {
             if let component = player.component(ofType: PlayerComponent.self) {
                 component.score = 0
@@ -77,6 +83,11 @@ class EntityManager {
     
     @objc func onDidEnterStateEndGame(_ notification:Notification) {
         // Do something now
+        
+        for entity in floorComponent() {
+            entity.gameIsRunning = false
+        }
+        
         endGame()
     }
     
@@ -183,6 +194,16 @@ class EntityManager {
       return nil
     }
     
+    func floorComponent() -> [FloorComponent] {
+        var floors = [FloorComponent.init()]
+      for entity in entities {
+          if let entity2 = entity.component(ofType: FloorComponent.self) {
+            floors.append(entity2)
+          }
+      }
+      return floors
+    }
+    
     func beginPlayerJump() {
         if let jumpComp = jumpComponent() {
             if jumpComp.jumpAvailable == true && jumpComp.hasTouchedGround {
@@ -247,6 +268,7 @@ class EntityManager {
                 playerComponent.node.isPaused = true
             }
         }
+
     }
     
     // MARK: Enemy Functions

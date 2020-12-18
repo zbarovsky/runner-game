@@ -15,7 +15,7 @@ let enemyCounterIncrease = 1
 
 let jumpVelocity = 50
 
-let floorVelocity:Double = 0.0020
+let floorVelocity:Double = 250
 
 var enemySpeed = Double.random(in: 1...3)
 var enemiesSpawned = Int.random(in: 0...5)
