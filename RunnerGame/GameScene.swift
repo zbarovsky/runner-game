@@ -94,6 +94,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let moveForever = SKAction.repeatForever(moveLoop)
 
             ground.run(moveForever)
+            ground.isPaused = true
         }
     }
     

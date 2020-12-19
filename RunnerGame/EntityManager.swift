@@ -49,6 +49,10 @@ class EntityManager {
             floorComp.gameIsRunning = true
         }
         
+        for node in scene.children {
+            node.isPaused = false
+        }
+        
         if let player = player() {
             if let component = player.component(ofType: PlayerComponent.self) {
                 component.score = 0
@@ -267,6 +271,10 @@ class EntityManager {
             if let playerComponent = player.component(ofType: SpriteComponent.self) {
                 playerComponent.node.isPaused = true
             }
+        }
+        
+        for node in scene.children {
+            node.isPaused = true
         }
 
     }
