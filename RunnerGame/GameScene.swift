@@ -34,7 +34,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         createSkyline()
         
-        let player = Player(imageName: "character_maleAdventurer_idle")
+        let player = Player(imageName: "rg_player_idle")
         if let playerComponent = player.component(ofType: SpriteComponent.self) {
             playerComponent.node.position = CGPoint(x:size.width/6, y: size.height/2)
         }
@@ -111,6 +111,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchDown(atPoint: t.location(in: self)) }
+        
         if stateMachine.currentState!.isKind(of: RGStatePlaying.self ){
             entityManager.beginPlayerJump()
         }

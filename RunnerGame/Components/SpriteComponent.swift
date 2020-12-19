@@ -20,7 +20,7 @@ class SpriteComponent: GKComponent {
     func addPlayerAnimation() {
         
         if node.action(forKey: "playerWalking") == nil{
-            let playerAnimatedAtlas = SKTextureAtlas(named: "manwalking")
+            let playerAnimatedAtlas = SKTextureAtlas(named: "rg_player_run")
             var walkFrames: [SKTexture] = []
 
             for string in playerAnimatedAtlas.textureNames {

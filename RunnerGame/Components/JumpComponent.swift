@@ -43,7 +43,7 @@ class JumpComponent: GKComponent {
             if let spriteComponent = entity.component(ofType: SpriteComponent.self)  {
                 if let spritePhsyics = spriteComponent.node.physicsBody {
                     
-                    if spriteComponent.node.frame.maxY > deviceHeight() - 100 {
+                    if spriteComponent.node.position.y + spriteComponent.node.size.height / 2 > deviceHeight() - 135 {
                         isJumping = false
                         jumpAvailable = false
                     } else {

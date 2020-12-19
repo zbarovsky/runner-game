@@ -40,7 +40,6 @@ class FloorComponent: GKComponent {
         if sprite.position.x <= -sprite.texture!.size().width/2 {
             let difference:CGFloat = sprite.position.x + sprite.texture!.size().width/2
             sprite.position.x = sprite.texture!.size().width + sprite.texture!.size().width/2 + difference
-            print("\(difference)")
         } else {
             if let previousTime = previousTime {
                 let deltaChange = seconds - previousTime

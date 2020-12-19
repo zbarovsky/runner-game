@@ -213,7 +213,7 @@ class EntityManager {
                 if let playerEntity = player() {
                     if let playerSprite = playerEntity.component(ofType: SpriteComponent.self) {
                         playerSprite.node.removeAction(forKey: "playerWalking")
-                        playerSprite.node.texture = SKTexture.init(imageNamed: "character_maleAdventurer_jump")
+                        playerSprite.node.texture = SKTexture.init(imageNamed: "rg_player_jump")
                     }
                 }
             }
