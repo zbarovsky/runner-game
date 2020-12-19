@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "rg_floor@2x-1.png",
+      "filename" : "rg_background.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "rg_floor@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "rg_floor@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

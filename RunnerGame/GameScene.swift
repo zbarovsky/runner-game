@@ -12,28 +12,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var entityManager: EntityManager!
     
-    var stateMachine: RGStateMachine!
+    var stateMachine: RGStateMachine = RGStateMachine.init(states: [RGStatePaused.init(), RGStateMenu.init(), RGStatePlaying.init(), RGStateEndGame.init()])
     
     let coin1Label = SKLabelNode(fontNamed: "Courier-Bold")
+    
+    let backgroundSprite = SKSpriteNode(texture: (SKTexture.init(imageNamed: "rg_background")))
+    
+    var floorY:CGFloat = 0
 
     
     override func sceneDidLoad() {
-        stateMachine = RGStateMachine.init(states: [RGStatePaused.init(), RGStateMenu.init(), RGStatePlaying.init(), RGStateEndGame.init()])
-
+    
         entityManager = EntityManager(scene: self, stateMachine: stateMachine)
         
         stateMachine.enter(RGStateMenu.self)
         
         self.physicsWorld.gravity = CGVector(dx: 0.0, dy: -35)
         self.physicsWorld.contactDelegate = self
-        
+                
         createGround()
         
-//        let floor = Floor(imageName: "floor")
-//        if let floorComponent = floor.component(ofType: SpriteComponent.self) {
-//            floorComponent.node.position = CGPoint(x: floorComponent.node.size.width/2, y: floorComponent.node.size.height/6)
-//        }
-//        entityManager.add(floor)
+        createSkyline()
         
         let player = Player(imageName: "character_maleAdventurer_idle")
         if let playerComponent = player.component(ofType: SpriteComponent.self) {
@@ -41,6 +40,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         entityManager.add(player)
         
+        backgroundSprite.anchorPoint = self.anchorPoint
+        backgroundSprite.zPosition = -99
+        backgroundSprite.scale(to: CGSize.init(width: deviceWidth(), height: deviceHeight()))
+        self.addChild(backgroundSprite)
         
         coin1Label.fontSize = 50
         coin1Label.fontColor = SKColor.white
@@ -68,10 +71,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 if let floorTexture = floorComponent.node.texture {
                     let zeroPoint = (floorTexture.size().width - deviceWidth()) / 2
                     floorComponent.node.position = CGPoint(x: (floorTexture.size().width / 2.0 + (floorTexture.size().width * CGFloat(i))) - zeroPoint, y: floorTexture.size().height / 6)
-                
+                    self.floorY = floorTexture.size().height / 6 + floorTexture.size().height/2
                     self.entityManager.add(floor)
                 }
             }
+        }
+    }
+    
+    func createSkyline() {
+        let groundTexture = SKTexture(imageNamed: "rg_skyline")
+
+        for i in 0 ... 1 {
+            let ground = SKSpriteNode(texture: groundTexture)
+            ground.zPosition = -11
+            ground.position = CGPoint(x: (groundTexture.size().width / 2.0 + (groundTexture.size().width * CGFloat(i))), y: floorY + groundTexture.size().height/2)
+
+            addChild(ground)
+
+            let moveLeft = SKAction.moveBy(x: -groundTexture.size().width, y: 0, duration: 15)
+            let moveReset = SKAction.moveBy(x: groundTexture.size().width, y: 0, duration: 0)
+            let moveLoop = SKAction.sequence([moveLeft, moveReset])
+            let moveForever = SKAction.repeatForever(moveLoop)
+
+            ground.run(moveForever)
         }
     }
     

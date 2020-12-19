@@ -27,7 +27,7 @@ class EnemyMovementComponent: GKComponent {
             return
         }
         if spriteComponent.node.physicsBody?.velocity.dx == 0 {
-            spriteComponent.node.run(SKAction.moveTo(x: 0, duration: rateOfSpeed))
+            spriteComponent.node.run(SKAction.moveTo(x: -50, duration: rateOfSpeed))
         }
     }
 }
